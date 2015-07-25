@@ -1,0 +1,55 @@
+/* CSS Document */
+body{-webkit-text-size-adjust:none;background:#f8f8f8;}
+*{-webkit-text-size-adjust:none; font-size:12px; font-family:"微软雅黑"; margin:0; padding:0; outline:none;}
+input,textarea,select{ font-size:100%;}ul{ list-style:none;}
+a{ font-size:12px; outline:none; text-decoration:none; border-radius:3px; display:inline-block;}
+
+.box img{ border:none; width:100%;}
+.box{width:100%; position:relative;}
+
+.header_con{ position:relative;}
+.header_con .pos{ position:absolute;}
+.header_con .logo{ width:17.6%; top:14.5%; left:4%;}
+.header_con .txt{ width:19.5%; left:24.2%; top:18.8%;}
+.header_con .star{ width:50%; left:24.2%; top:35.6%;}
+.header_con .star strong{ display:inline-block; width:8%;}
+.header_con .det{ width:27.3%; top:53.5%; left:24.1%;}
+.header_con .btn_download{ width:15%; height:25.3%;left:80.8%; top:30.7%; text-indent:-9999px;}
+
+#pic_box{position:relative; overflow:hidden;}
+#pic_box ul{ position:absolute; top:0; left:4%;}
+#pic_box ul li{ width:43.8%; float:left;}
+#pic_box ul li img{ width:96.5%;}
+
+.con{ padding:0 4%; background:#f8f8f8;}
+.con h1{ color:#919191; font-size:24px; padding:0 0 7px 0; border-bottom:solid 1px #dfdfdf; width:25.6%; font-weight:normal;}
+.con p{ font-size:26px; color:#616161; padding:0 0 30px 0;}
+.con .btn_more,.con .btn_up{ text-align:right;}
+.con .btn_more a,.con .btn_up a{ font-size:26px; color:#3f95ed; padding:10px 10px 20px 10px;}
+.con .box_more,.con .btn_up{ display:none;}
+
+@media only screen and (max-width:600px){
+	.con h1{  font-size:22px; padding:0 0 7px 0;}
+	.con p{ font-size:24px; padding:0 0 20px 0;}
+	.con .btn_more a,.con .btn_up a{ font-size:24px; }
+}
+@media only screen and (max-width:500px){
+	.con h1{  font-size:20px; padding:0 0 4px 0; }
+	.con p{ font-size:22px;}
+	.con .btn_more a,.con .btn_up a{ font-size:22px; }
+}
+@media only screen and (max-width:480px){
+	.con h1{  font-size:18px;}
+	.con p{ font-size:18px;}
+	.con .btn_more a,.con .btn_up a{ font-size:18px; }
+}
+@media only screen and (max-width:400px){
+	.con h1{  font-size:12px; padding:0 0 4px 0;}
+	.con p{ font-size:14px; padding:0 0 15px 0;}
+	.con .btn_more a,.con .btn_up a{ font-size:14px; }
+}
+@media only screen and (max-width:350px){
+	.con h1{  font-size:12px; padding:0 0 2px 0;}
+	.con p{ font-size:12px; padding:0 0 10px 0;}
+	.con .btn_more a,.con .btn_up a{ font-size:12px; }
+}
