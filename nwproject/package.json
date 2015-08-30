@@ -1,0 +1,13 @@
+{
+  "name": "hello",
+  "version": "0.0.0",
+  "main": "index.html",
+  "window": {
+    "toolbar": false,
+    "width": 400,
+    "height": 428
+  },
+  "devDependencies": {
+    "imagemagick":"0.1.3"
+  }
+}

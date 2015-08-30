@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dragSomething</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		html,body{width: 100%; height: 100%; overflow: hidden; border: 0px;}
+		.box,div{ width: 100%; height: 100%;}
+		.box p{ width: 85%; height: 85%; margin: 7.5%; border:2px dashed #ccc; line-height: 360px; text-align: center; color: #fefefe; font-size: 15px; text-shadow:-1px -1px 0 #777;}
+		.success{ background-color: #fefefe;}
+		.fail{background-color: #cc0}
+		.hover{ background-color: #999;}
+		.fxed{ position: fixed; z-index: 100; height: 10px; left: 0; top: 0; width: 100%; word-break:break-all;}
+	</style>
+</head>
+<body>
+	<div class="fxed"></div>
+	<div class="box">
+		<p id="status"> 拖动到这里</p>
+	</div>
+
+	<script src="./js/main.js"></script>
+</body>
+</html>
