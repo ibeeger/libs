@@ -3,11 +3,22 @@
   "version": "0.0.0",
   "main": "index.html",
   "window": {
+    "title": "批量图片合并",
+    "icon": "./nw.icns",
     "toolbar": false,
     "width": 400,
-    "height": 428
+    "height": 428,
+    "min_height":428,
+    "max_height":428,
+    "min_width":400,
+    "max_width":400
   },
   "devDependencies": {
     "imagemagick":"0.1.3"
-  }
+  },
+  "maintainers":[ {
+   "name": "ibeeger",
+   "email": "80301983@qq.com",
+   "web": "http://www.ibeeger.com"
+}]
 }

@@ -1,7 +1,12 @@
 var fs = require("fs");
-var step_height = 0;
-// document.querySelector(".fxed").innerHTML = JSON.stringify(fs);
-var w =0,h=0,imgs,files,step =0;
+var os = require('path');
+ // document.querySelector(".fxed").innerHTML =  os.dirname();
+
+var w = 0,
+	h = 0,
+	imgs, files, step = 0,
+	timer;
+hs = [];
 var holder = document.querySelector('.box'),
 	state = document.getElementById('status');
 
@@ -16,61 +21,33 @@ holder.ondragover = function() {
 	return false;
 };
 holder.ondragend = function() {
-	state.className = '';
+	state.className = 'norm';
 	return false;
 };
 holder.ondrop = function(e) {
-	state.style.display = 'none';
+	hs = [], h = 0, w = 0, h = 0, step = 0;
 	e.preventDefault();
-
 	files = e.dataTransfer.files;
-	// document.querySelector(".fxed").innerHTML = typeof files;
- 
-		
-	  
-		
+	
+	
 	files = objToArry(files);
 	imgs = files.length;
-	files.forEach(initImage)
-
-	// do {
-	// 	// document.querySelector(".fxed").innerHTML += "asdf";
-		
-
-	// 	var buf = new Buffer(fs.readFileSync(files[i].path)).toString("base64");
-	// 	img.src = "data:"+files[i].type+",base64,"+buf;
-	// 	imgs.push(img);
-	// 	// document.querySelector(".fxed").innerHTML += buf;
-	// 	// fs.readFile(files[i].path, function() {
-
-	// 	// 	// document.querySelector(".fxed").innerHTML = new Buffer(arguments[1]).toString("base64");
-	// 	// 	img.src = new Buffer(arguments[1]).toString("base64");
-	// 	// 	imgs.push(img);
-	// 	// 	document.querySelector(".fxed").innerHTML += "<br>"+img;
-	// 	// 	i++;
-	// 	// })
-	// 	i++;
-
-	// } while (i<files.length);
-
-	// document.querySelector(".fxed").innerHTML = imgs[0];
-
-	// imgs[0].onload = function(){
-	// 	document.querySelector(".fxed").innerHTML = JSON.stringify(arguments);
-	// }
-
-	
+	// files.forEach(initImage);
+	// document.querySelector(".fxed").innerHTML = step + ":" + imgs;
 
 
-
-	//  document.querySelector(".fxed").innerHTML =imageBuffer;
+	timer = setInterval(function() {
+		var img = document.createElement("img");
+		img.src = files[step].path;
+		state.innerHTML = step+"正在合并中....."
+		makeImage(img);
+	}, 100);
 
 	return false;
-
 };
 
 
-function objToArry(obj){
+function objToArry(obj) {
 	var _obj = [];
 	for (var i = obj.length - 1; i >= 0; i--) {
 		_obj.push(obj[i])
@@ -79,63 +56,81 @@ function objToArry(obj){
 };
 
 
-function getImgSize(img,callback){
-	img.onload = function(){
-		callback({w:img.width,h:img.height});
+function getImgSize(img, callback) {
+	img.onload = function() {
+		callback({
+			w: img.width,
+			h: img.height
+		});
 	}
 }
 
 
+function makeImage(pic) {
+	getImgSize(pic, function(ds) {
+		w = Math.max(ds["w"], w);
+		hs.push(h);
+		h += ds["h"];
+		step++;
+		if (step == imgs) {
+			clearTimeout(timer);
+			var canvas = document.getElementById('cs'),
+				ctx = canvas.getContext("2d");
+			canvas.width = w;
+			canvas.height = h;
+			// document.querySelector(".fxed").innerHTML = files.length;
+			for (var i = 0; i < files.length; i++) {
+				var img = document.createElement("img");
+				img.src = files[i]["path"];
+				ctx.drawImage(img, 0, hs[i]);
+				if (i == files.length - 1) {
+					var base64Data = cs.toDataURL().replace(/^data:image\/png;base64,/, "");
+					fs.writeFile(process.env.HOME+"/Desktop/result.png", base64Data, "base64", function() {
+					    // document.querySelector(".fxed").innerHTML = JSON.stringify(process.env);
+						state.className = 'norm';
+						state.innerHTML = "合并完成~桌面查看result.png";
 
-function initImage(d){
+						base64Data = "";
+					})
+				};
+
+			}
+		}
+	});
+}
+
+function initImage(d) {
 	// states = fs.statSync(d.path);
-	step++;
 	var img = document.createElement("img");
-		img.src = d.path;
-		 getImgSize(img,function(ds){
-		 	w=Math.max(ds["w"],w);
-		 	h+=ds["h"];
-			 // document.querySelector(".fxed").innerHTML = step+":"+imgs;
-			 	
-			if (step == imgs) {
-				var canvas = document.createElement("canvas"),ctx = canvas.getContext("2d");
-				document.body.appendChild(canvas); 
+	img.src = d.path;
+	getImgSize(img, function(ds) {
+		w = Math.max(ds["w"], w);
+		hs.push(h);
+		h += ds["h"];
+		step++;
+		if (step == imgs) {
+			var canvas = document.getElementById('cs'),
+				ctx = canvas.getContext("2d");
+			canvas.width = w;
+			canvas.height = h;
+			document.querySelector(".fxed").innerHTML = files.length;
+			for (var i = 0; i < files.length; i++) {
+				var img = document.createElement("img");
+				img.src = files[i]["path"];
 
-				canvas.width = w;
-				canvas.height = h;
-				ctx.fillStyle="#0000ff";
-				ctx.fillRect(20,20,150,100);
-				 document.querySelector(".fxed").innerHTML = canvas;
-				 
-			   // document.querySelector(".fxed").innerHTML =JSON.stringify(files[0]);
-				for(var i = 0; i< files.length; i++){
-					var img = document.createElement("img");
-					 img.src = files[i]["path"];
-					 img.onload = function(){
+				ctx.drawImage(img, 0, hs[i]);
+				if (i == files.length - 1) {
+					var base64Data = cs.toDataURL().replace(/^data:image\/png;base64,/, "");
+					fs.writeFile(process.env.PWD + "/a.png", base64Data, "base64", function() {
+						// document.querySelector(".fxed").innerHTML = arguments;
+						state.className = 'norm';
+						state.innerHTML = "合并完成......";
+						base64Data = "";
+					})
+				};
 
-					 	 // ctx.drawImage(img,0,i*img.height);
-					 	 ctx.fillRect(0,i*img.height,img.width,img.height);
-					 	 if (i == imgs) {
-					 	 	var pic = document.createElement("img");
-					 	 	pic.src = canvas.toDataURL();
-					 	   
-					 	 	
-					 	 };
-					 };
-				}
+			}
+		};
+	});
 
-			};
-			
-
-
-
-
-
-
-		});
-	
 };
-
-
-
-
