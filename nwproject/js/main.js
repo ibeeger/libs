@@ -1,6 +1,15 @@
 var fs = require("fs");
-var os = require('path');
- // document.querySelector(".fxed").innerHTML =  os.dirname();
+var path = require('path');
+
+
+var dir = require("./js/dir.js");
+
+// var cc = require(path.join("dir.js"));
+
+// var dir = require("dir.js");
+// document.querySelector(".fxed").innerHTML = JSON.stringify(cc); 
+
+var css = ".ico{background-image:url(result.png); background-repeat:no-repeat;}";
 
 var w = 0,
 	h = 0,
@@ -71,6 +80,7 @@ function makeImage(pic) {
 		w = Math.max(ds["w"], w);
 		hs.push(h);
 		h += ds["h"];
+		css+=".ico-"+step+"{background-position:0  "+h+"px; width:"+ds["w"]+"px; height:"+ds["h"]+"px;}"
 		step++;
 		if (step == imgs) {
 			clearTimeout(timer);
@@ -85,19 +95,15 @@ function makeImage(pic) {
 				ctx.drawImage(img, 0, hs[i]);
 				if (i == files.length - 1) {
 					var base64Data = cs.toDataURL().replace(/^data:image\/png;base64,/, "");
-					fs.writeFile(process.env.HOME+"/Desktop/result.png", base64Data, "base64", function() {
-					    // document.querySelector(".fxed").innerHTML = JSON.stringify(process.env);
-						state.className = 'norm';
-						state.innerHTML = "合并完成~桌面查看result.png";
-
-						base64Data = "";
-					})
+					dir.saveFile({img:base64Data,css:css},state);
 				};
 
 			}
 		}
 	});
 }
+
+
 
 function initImage(d) {
 	// states = fs.statSync(d.path);
