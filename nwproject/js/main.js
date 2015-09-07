@@ -1,16 +1,8 @@
 var fs = require("fs");
 var path = require('path');
-
-
 var dir = require("./js/dir.js");
-
-// var cc = require(path.join("dir.js"));
-
-// var dir = require("dir.js");
-// document.querySelector(".fxed").innerHTML = JSON.stringify(cc); 
-
+ // document.querySelector(".fxed").innerHTML = JSON.stringify(gui);
 var css = ".ico{background-image:url(result.png); background-repeat:no-repeat;}";
-
 var w = 0,
 	h = 0,
 	imgs, files, step = 0,
