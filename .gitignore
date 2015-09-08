@@ -5,7 +5,7 @@
 /edit
 /dist
 /spm_modules
-/node_modules
+node_modules
 /base.js
 /docs
 /test
