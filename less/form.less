@@ -1,7 +1,99 @@
+@bdcolor: #ccc;
+@icosize:16px;
 
-input[type="text"]{
-	border: 1px solid @bdcolor;
+
+input[type='text']{
+	.bd();
+	 height: 25px;
+	padding: 5px;
+	box-shadow: inset 0 0 3px #ccc;
+	&.r{
+		.r();
+	}
+	&.lg{
+		height: 30px;
+		font-size: 16px;
+	}
+	&.nm{
+		height: 28px;
+		font-size: 14px;
+	}	
+}
+
+.ico(){
+	width: @icosize;
+	height: @icosize;
+	overflow: hidden;
+	border: 2px solid @bdcolor;
+	vertical-align: middle;
+	line-height: @icosize*.9;
+	margin-right: 5px;
+	text-align: center;
+	font-size: @icosize /2;
+	cursor: pointer;
+	i{
+		background-color: @bdcolor;
+		display: inline-block;
+		visibility: hidden;
+		width: @icosize* 0.5;
+		height: @icosize * 0.5;
+		margin: 0;
+	}
+	&.checked{
+		i{
+			visibility: visible;
+		}
+	}
+
+}
+
+.rdio() {
+	.ico();
+	border-radius: @icosize /2;
+	i {
+		border-radius: @icosize*0.3;
+	}
+	
+}
+.check() {
+	 .ico();
 }
 
 
+.formdl{
+	min-height: 30px;
+	clear: both;
+	overflow: hidden;
+	dt{
+		width: 25%;
+		text-align: right;
+		line-height: 30px;
+		float: left;
+		padding-right: 5%;
+	}
+	dd{
+		width: 70%;
+		float: left;
+	}
+
+}
+
+
+input[type="text"] {
+	border: 1px solid @bdcolor;
+}
+span.ico {
+	display: inline-block;
+	label.radio>& {
+		.rdio();
+	}
+	label.checkbox>& {
+		.check();
+	}
+}
+
+label {
+	display: inline-block;
+	cursor: pointer;
+}
 
