@@ -46,35 +46,13 @@ a:hover {
   color: #111111;
 }
 .bg-blue {
-  background-color: #cccccc;
+  background-color: #5ec0e3;
 }
 .bg-red {
   background-color: #cccccc;
 }
 .bg-yellow {
   background-color: #cccccc;
-}
-.btn {
-  display: inline-block;
-  text-align: center;
-}
-.btn.r {
-  border-radius: 5px;
-}
-.btn.s-btn {
-  font-size: 14px;
-  padding: 6px 10px;
-  min-width: 80px;
-}
-.btn.m-btn {
-  font-size: 16.8px;
-  padding: 10px 15px;
-  min-width: 96px;
-}
-.btn.b-btn {
-  font-size: 19.6px;
-  padding: 13px 20px;
-  min-width: 112px;
 }
 *:before,
 *:after {
@@ -144,4 +122,29 @@ a:hover {
 }
 .col-12 {
   width: 100%;
+}
+input[type="text"] {
+  border: 1px solid #999999;
+}
+.btn {
+  display: inline-block;
+  text-align: center;
+}
+.btn.ro {
+  border-radius: 5px;
+}
+.btn.s-btn {
+  font-size: 14px;
+  padding: 6px 10px;
+  min-width: 80px;
+}
+.btn.m-btn {
+  font-size: 16.8px;
+  padding: 10px 15px;
+  min-width: 96px;
+}
+.btn.b-btn {
+  font-size: 19.6px;
+  padding: 13px 20px;
+  min-width: 112px;
 }
