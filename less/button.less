@@ -25,3 +25,50 @@
 		min-width: @width * 1.4;
 	}
 }
+
+
+.ui-menu{
+	li{
+		position: relative;
+		z-index: 5;
+		height: 30px;
+		cursor: pointer;
+		float: left;
+		padding: 0 30px;
+		background-color: #f0f0f0;
+		line-height: 30px;
+		&:hover{
+			background-color:#ccc;
+		}
+		ul{
+			position: absolute;
+			display: none;
+			top: 30px; left: 0;
+			width: 100%;
+			li{
+				padding: 0;
+				width: 100%;
+				float: none;
+				text-align: center;
+				clear: both;
+				height: 30px;
+				margin-top: 0;
+				a{
+					display: block;
+					height: 100%;
+					width: 100%;
+					line-height: 30px;
+					&:hover{
+						background-color: #fff;
+					}
+				}
+			}
+		}
+		&:hover{
+			ul{
+				display: block;
+			}
+		}
+	}
+
+}

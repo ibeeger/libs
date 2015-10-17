@@ -57,11 +57,61 @@
 .ui-txt-list {
 	li {
 		padding: 0 @distance;
+		height: 30px;
+		line-height: 30px;
+		clear: both;
+		span{float: right;}
+		&:hover{
+			background-color: @bdcolor;
+		}
 
 		a {
+			font-size: @common-font-size;
 		}
 	}
 }
+
+.ui-title{
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid @bdcolor;
+
+	h4{
+		color: @blue;
+		position: relative;
+		height: 30px;
+		float: left;
+		padding: 0 15px;
+		border-bottom: 1px solid @blue;
+	}
+}
+
+.ui-tab-title{
+	width: 100%;
+	 clear: both;
+	 height: 30px;
+	 line-height: 30px;
+	 li{float: left; text-align: center; height: 100%;
+	 	cursor: pointer;
+		&.cur{
+			background: @blue;
+			color: #fff;
+		}
+	 }
+	 &.x2{
+	 	li{width: 50%;}
+	 }
+	 &.x3{
+	 	li{width: 33.3%;}
+	 }
+	 &.x4{
+	 	li{width: 25%;}
+	 }
+	 &.x5{
+	 	li{width: 20%;}
+	 }
+}
+
 
 h1{
 	font-size: 28px;
