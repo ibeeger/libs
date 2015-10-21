@@ -4,9 +4,15 @@
 	display: inline-block;
 	text-align: center;
 	border: 0 none;
-
+	line-height: 100%;
+	cursor: pointer;
 	&.r{
 		.r()
+	}
+	&.ui-center{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	&.s-btn {
 		font-size: @btn-font-size;
@@ -17,33 +23,51 @@
 		font-size: @btn-font-size *1.2;
 		.pd(10px,15px);
 		min-width: @width * 1.2;
-
+		
 	}
 	&.b-btn{
 		font-size: @btn-font-size *1.4;
 		.pd(13px,20px);
 		min-width: @width * 1.4;
 	}
+	&.disabled{
+		background-color: #c3c3c3;
+		color: @color-0;
+		&:hover{
+			background-color: #c3c3c3;
+			color: @color-0;
+		}
+	}
 }
 
+
+
+.blue-btn{
+	background-color: @color-5;
+	color: @color-0;
+	&:hover{
+		color: @color-0;
+		background-color: @color-5 * .9;
+	}
+}
 
 .ui-menu{
 	li{
 		position: relative;
 		z-index: 5;
-		height: 30px;
+		height: @header-height;
 		cursor: pointer;
 		float: left;
 		padding: 0 30px;
-		background-color: #f0f0f0;
-		line-height: 30px;
+		line-height: @header-height;
+		border-bottom: 2px solid @color-4;
 		&:hover{
-			background-color:#ccc;
+			border-bottom-color: @color-5;
 		}
 		ul{
 			position: absolute;
 			display: none;
-			top: 30px; left: 0;
+			top:@header-height; left: 0;
 			width: 100%;
 			li{
 				padding: 0;
@@ -53,13 +77,15 @@
 				clear: both;
 				height: 30px;
 				margin-top: 0;
+				border-bottom: none;
 				a{
 					display: block;
 					height: 100%;
 					width: 100%;
 					line-height: 30px;
 					&:hover{
-						background-color: #fff;
+						color: #fff;
+						background-color:  @color-5;
 					}
 				}
 			}

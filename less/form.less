@@ -1,11 +1,7 @@
-@bdcolor: #ccc;
 @icosize:16px;
 
-input{
-	outline: none;
-}
 
-input[type='text'],input[type='password']{
+input[type='text']{
 	.bd();
 	 height: 25px;
 	padding: 5px;
@@ -71,17 +67,32 @@ input[type='text'],input[type='password']{
 	clear: both;
 	overflow: hidden;
 	dt{
-		width: 30%;
+		width: 25%;
 		text-align: right;
 		line-height: 30px;
 		float: left;
 		padding-right: 5%;
 	}
 	dd{
-		width: 65%;
+		width: 70%;
 		float: left;
 	}
 
+}
+
+.ui-progressbar{
+	border:1px solid @color-5;
+	height: 10px;
+	border-radius: 5px;
+	background-color: @color-0;
+	display: inline-block;
+	font-size: 0px;
+	overflow: hidden;
+	span,div{
+		display: inline-block;
+		background-color: @color-5;
+		height: 100%;
+	}
 }
 
 
