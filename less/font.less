@@ -1,7 +1,7 @@
 html{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);font-size: 10px;} 
 body {
-	font-size: @common-font-size;
-	color: @common-font-color;
+	font-size: @common-size;
+	color: @common-color;
 	overflow-x: hidden;
 	font-family: 'STHeiti','Microsoft YaHei','宋体','arial';
 }
@@ -13,47 +13,343 @@ body, div, p, ul, li, label,i, dt, dd, dl, ol, form, input,select, section, butt
 li{list-style: none;}
 
 a {
-	color: @common-font-color;
-	font-size: @common-font-size;
+	color: @common-color;
+	font-size: @common-size;
 	text-decoration: none;
 	&:hover {
 		color: @link-hover-color;
 	}
 }
 
+.color-1{
+	color: @color-1;
+}
+.color-2{
+	color: @color-2;
+}
+.color-3{
+	color: @color-3;
+}
+.color-4{
+	color: @color-4;
+}
+.color-5{
+	color: @color-5;
+}
 
-.ico{
-	display: inline-block;
-	width: 16px;
-	height: 16px; 
-	font-size: 0px;
-	vertical-align: middle;
-	background-repeat: no-repeat;
-	&.ico-white{
-		background-image: url(../ui-skin/ico-white.png);
-	}
-	&.ico-blue{
-		background-image: url(../ui-skin/ico-blue.png);
-	}
-	&.ico-1{
-		background-position: -160px -145px;
-	}
-	&.ico-2{
-		background-position: -192px -145px;
-	}
-	&.ico-3{
-		background-position: -224px -145px;
-	}
-	&.ico-4{
-		background-position: -128px 0;
-	}
-	&.ico-5{
-		background-position: -160px 0;
-	}
-	&.ico-6{
-		background-position: -32px -174px;
-	}
-	&.ico-7{
-		background-position: -192px -29px;
-	}
+
+@font-face {
+  font-family: 'ui-font';
+  src: url('../fonts/glyphicons/ico-font.eot');
+  src: url('../fonts/glyphicons/ico-font.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/glyphicons/ico-font.woff') format('woff'),
+       url('../fonts/glyphicons/ico-font.ttf') format('truetype'),
+       url('../fonts/glyphicons/ico-font.svg#ico-font') format('svg');
+}
+
+
+
+[class^="ico-"],
+[class*="ico-"] {
+  font-family: 'ui-font';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+}
+
+.ico-triangle-up:before {
+  content: "\e600";
+}
+.ico-triangle-down:before {
+  content: "\e601";
+}
+.ico-triangle-up-small:before {
+  content: "\e602";
+}
+.ico-triangle-down-small:before {
+  content: "\e603";
+}
+.ico-triangle-left-large:before {
+  content: "\e604";
+}
+.ico-triangle-right-large:before {
+  content: "\e605";
+}
+.ico-arrow-left:before {
+  content: "\e606";
+}
+.ico-arrow-right:before {
+  content: "\e607";
+}
+.ico-plus:before {
+  content: "\e608";
+}
+.ico-cross:before {
+  content: "\e609";
+}
+.ico-check:before {
+  content: "\e60a";
+}
+.ico-radio-unchecked:before {
+  content: "\e60b";
+}
+.ico-radio-checked:before {
+  content: "\e60c";
+}
+.ico-checkbox-unchecked:before {
+  content: "\e60d";
+}
+.ico-checkbox-checked:before {
+  content: "\e60e";
+}
+.ico-info-circle:before {
+  content: "\e60f";
+}
+.ico-alert-circle:before {
+  content: "\e610";
+}
+.ico-question-circle:before {
+  content: "\e611";
+}
+.ico-check-circle:before {
+  content: "\e612";
+}
+.ico-cross-circle:before {
+  content: "\e613";
+}
+.ico-plus-circle:before {
+  content: "\e614";
+}
+.ico-pause:before {
+  content: "\e615";
+}
+.ico-play:before {
+  content: "\e616";
+}
+.ico-volume:before {
+  content: "\e617";
+}
+.ico-mute:before {
+  content: "\e618";
+}
+.ico-resize:before {
+  content: "\e619";
+}
+.ico-list:before {
+  content: "\e61a";
+}
+.ico-list-thumbnailed:before {
+  content: "\e61b";
+}
+.ico-list-small-thumbnails:before {
+  content: "\e61c";
+}
+.ico-list-large-thumbnails:before {
+  content: "\e61d";
+}
+.ico-list-numbered:before {
+  content: "\e61e";
+}
+.ico-list-columned:before {
+  content: "\e61f";
+}
+.ico-list-bulleted:before {
+  content: "\e620";
+}
+.ico-window:before {
+  content: "\e621";
+}
+.ico-windows:before {
+  content: "\e622";
+}
+.ico-loop:before {
+  content: "\e623";
+}
+.ico-cmd:before {
+  content: "\e624";
+}
+.ico-mic:before {
+  content: "\e625";
+}
+.ico-heart:before {
+  content: "\e626";
+}
+.ico-location:before {
+  content: "\e627";
+}
+.ico-new:before {
+  content: "\e628";
+}
+.ico-video:before {
+  content: "\e629";
+}
+.ico-photo:before {
+  content: "\e62a";
+}
+.ico-time:before {
+  content: "\e62b";
+}
+.ico-eye:before {
+  content: "\e62c";
+}
+.ico-chat:before {
+  content: "\e62d";
+}
+.ico-home:before {
+  content: "\e62e";
+}
+.ico-upload:before {
+  content: "\e62f";
+}
+.ico-search:before {
+  content: "\e630";
+}
+.ico-user:before {
+  content: "\e631";
+}
+.ico-mail:before {
+  content: "\e632";
+}
+.ico-lock:before {
+  content: "\e633";
+}
+.ico-power:before {
+  content: "\e634";
+}
+.ico-calendar:before {
+  content: "\e635";
+}
+.ico-gear:before {
+  content: "\e636";
+}
+.ico-bookmark:before {
+  content: "\e637";
+}
+.ico-exit:before {
+  content: "\e638";
+}
+.ico-trash:before {
+  content: "\e639";
+}
+.ico-folder:before {
+  content: "\e63a";
+}
+.ico-bubble:before {
+  content: "\e63b";
+}
+.ico-export:before {
+  content: "\e63c";
+}
+.ico-calendar-solid:before {
+  content: "\e63d";
+}
+.ico-star:before {
+  content: "\e63e";
+}
+.ico-star-2:before {
+  content: "\e63f";
+}
+.ico-credit-card:before {
+  content: "\e640";
+}
+.ico-clip:before {
+  content: "\e641";
+}
+.ico-link:before {
+  content: "\e642";
+}
+.ico-tag:before {
+  content: "\e643";
+}
+.ico-document:before {
+  content: "\e644";
+}
+.ico-image:before {
+  content: "\e645";
+}
+.ico-facebook:before {
+  content: "\e646";
+}
+.ico-youtube:before {
+  content: "\e647";
+}
+.ico-vimeo:before {
+  content: "\e648";
+}
+.ico-twitter:before {
+  content: "\e649";
+}
+.ico-spotify:before {
+  content: "\e64a";
+}
+.ico-skype:before {
+  content: "\e64b";
+}
+.ico-pinterest:before {
+  content: "\e64c";
+}
+.ico-path:before {
+  content: "\e64d";
+}
+.ico-linkedin:before {
+  content: "\e64e";
+}
+.ico-google-plus:before {
+  content: "\e64f";
+}
+.ico-dribbble:before {
+  content: "\e650";
+}
+.ico-behance:before {
+  content: "\e651";
+}
+.ico-stumbleupon:before {
+  content: "\e652";
+}
+.ico-yelp:before {
+  content: "\e653";
+}
+.ico-wordpress:before {
+  content: "\e654";
+}
+.ico-windows-8:before {
+  content: "\e655";
+}
+.ico-vine:before {
+  content: "\e656";
+}
+.ico-tumblr:before {
+  content: "\e657";
+}
+.ico-paypal:before {
+  content: "\e658";
+}
+.ico-lastfm:before {
+  content: "\e659";
+}
+.ico-instagram:before {
+  content: "\e65a";
+}
+.ico-html5:before {
+  content: "\e65b";
+}
+.ico-github:before {
+  content: "\e65c";
+}
+.ico-foursquare:before {
+  content: "\e65d";
+}
+.ico-dropbox:before {
+  content: "\e65e";
+}
+.ico-android:before {
+  content: "\e65f";
+}
+.ico-apple:before {
+  content: "\e660";
 }
