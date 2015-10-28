@@ -1,8 +1,8 @@
-/* 
+/*
 * @Author: willclass
 * @Date:   2015-10-19 11:45:56
 * @Last Modified by:   willclass
-* @Last Modified time: 2015-10-19 11:53:15
+* @Last Modified time: 2015-10-28 14:36:07
 * 测试本地提交数据  服务端获取信息
 */
 
@@ -10,29 +10,35 @@
 
 var http = require('http');
 
-function post(d,url){
+function post(host,d,url,callback){
 	var data = JSON.stringify(d);
-
+    var lth  = Buffer.byteLength(data,'utf8');
 	var options = {
-  hostname: 'api.ibeeger.com',
-  port: 80,
-  path: url,
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': data.length
-  }
-};
+          hostname: host,
+          port: 80,
+          path: url,
+          method: 'POST',
+          headers: {
+            'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36',
+            'Content-Type': 'application/json',
+            'Content-Length':lth,
+            'Cookie':"HT01=U3Jid3dDUUE1NXdGWHp2SU81MzQ3Zz09|11" //
+            //             U3Jid3dDUUE1NXdGWHp2SU81MzQ3Zz09
+          }
+    };
 
   var req = http.request(options, function(res) {
-    console.log('STATUS: ' + res.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(res.headers));
+    // console.log('STATUS: ' + res.statusCode);
+      // console.log('HEADERS: ' + JSON.stringify(res.headers));
+
+    var str= "";
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
-      console.log('BODY: ' + chunk);
+        str+=chunk;
+      // console.log('BODY: ' + chunk);
     });
     res.on('end', function() {
-      console.log('No more data in response.')
+      callback(str);
     })
   });
 
@@ -40,14 +46,17 @@ function post(d,url){
     console.log('problem with request: ' + e.message);
   });
 
-  // write data to request body
+ console.log(data);
+   
   req.write(data);
   req.end();
 }
 
 
-
-post({'a':'1'},"/");
+module.exports = {
+    post : post
+}
+// post({'a':'1'},"/");
 
 
 /*
@@ -585,4 +594,5 @@ var reqjson = { _readableState:
   signedCookies: {},
   route: { path: '/', stack: [ [Object] ], methods: { post: true } } }
 
-  */
+*/
+  

@@ -6,6 +6,7 @@
 /edit
 /dist
 /spm_modules
+dbconfig.js
 node_modules
 /base.js
 /docs

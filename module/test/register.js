@@ -2,7 +2,7 @@
 * @Author: willclass
 * @Date:   2015-10-19 11:04:38
 * @Last Modified by:   willclass
-* @Last Modified time: 2015-10-19 14:11:37
+* @Last Modified time: 2015-10-22 16:40:43
 */
 
 'use strict';
@@ -51,7 +51,7 @@ function post(data,url){
       console.log('BODY: ' + chunk);
     });
     res.on('end', function() {
-      // console.log('No more data in response.')
+      /*console.log('No more data in response.')*/
       if (m<=0) {
         process.exit();
       };
@@ -67,7 +67,7 @@ function post(data,url){
     console.log('problem with request: ' + e.message);
   });
 
-  // write data to request body
+  /*write data to request body*/
   req.write(data);
 
   console.log(data);
