@@ -2,13 +2,13 @@
  * @Author: willclass
  * @Date:   2015-10-28 14:41:09
  * @Last Modified by:   willclass
- * @Last Modified time: 2015-10-28 14:54:14
+ * @Last Modified time: 2015-10-29 15:12:30
  */
 
 'use strict';
 
 var http = require("http"),
-	cookie, host = "localhost",
+	cookie = "", host = "localhost",
 	type = 'application/json',
 	method = 'POST';
 
