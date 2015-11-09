@@ -2,7 +2,7 @@
  * @Author: willclass
  * @Date:   2015-10-29 14:50:43
  * @Last Modified by:   willclass
- * @Last Modified time: 2015-10-29 18:07:51
+ * @Last Modified time: 2015-10-30 14:28:16
  */
 
 'use strict';
@@ -15,6 +15,23 @@ var jsdom = require("jsdom");
 var MongoClient = require('mongodb').MongoClient,
 	db;
 
+// http://www.tizi.com/teacher/paper/question/1 初中语文
+// http://www.tizi.com/teacher/paper/question/2 初中数学
+// http://www.tizi.com/teacher/paper/question/3 初中英语
+// http://www.tizi.com/teacher/paper/question/4 初中物理
+// http://www.tizi.com/teacher/paper/question/5 初中化学
+// http://www.tizi.com/teacher/paper/question/6 初中生物
+// http://www.tizi.com/teacher/paper/question/7 初中政治
+// http://www.tizi.com/teacher/paper/question/8 初中历史
+// http://www.tizi.com/teacher/paper/question/9 初中地理
+
+
+
+
+
+// http://www.tizi.com/teacher/paper/question/10 高中语文
+// http://www.tizi.com/teacher/paper/question/11/1372 高中数学
+// http://www.tizi.com/teacher/paper/question/12 高中英语
 // http://www.tizi.com/teacher/paper/question/13 高中物理
 // http://www.tizi.com/teacher/paper/question/14 高中化学
 // http://www.tizi.com/teacher/paper/question/15 高中生物
@@ -22,7 +39,18 @@ var MongoClient = require('mongodb').MongoClient,
 // http://www.tizi.com/teacher/paper/question/17 高中历史
 // http://www.tizi.com/teacher/paper/question/18 高中地理
 
-var url = dbconf.db1;
+
+var key = process.argv;
+
+if (key.length<3 || key.length<4) {
+   console.log("参数不对");
+   process.exit(0);
+};
+var sub = key[2] == 11 ? key[2]+"/1372" : key[2];
+var colname = key[3]
+
+
+var url = dbconf.dbol;
 
 MongoClient.connect(url, function(err, sdb) {
 	assert.equal(err, null);
@@ -31,7 +59,7 @@ MongoClient.connect(url, function(err, sdb) {
 })
 
 var options ={
-	url: "http://www.tizi.com/teacher/paper/question/16",
+	url: "http://www.tizi.com/teacher/paper/question/"+sub,
 	scripts: ["http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2"],
 	done: function(err, window) {
 
@@ -52,6 +80,8 @@ var options ={
 
 			j.id = itemclass.find("a").eq(1).attr("data-nselect");
 			j.name = itemclass.find("a").eq(1).attr("title");
+
+
 
 			if (itemclass.hasClass("tree-title2")) {
 				json1 = {};
@@ -87,15 +117,18 @@ var options ={
 				json3.subKnowledges.push(json4);
 			};
 
+			// console.log(json3);
+
 		});
 
-	
-		var col = db.collection("TiziZ");
+		// console.log(JSON.stringify(json));
+
+		var col = db.collection("Tizi_chuzhong_"+colname);
 		col.insertMany(json,function(){
 			console.log(arguments);
 			process.exit();
 		})
-
+		process.exit(0)
 	}
 }
 

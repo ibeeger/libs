@@ -2,7 +2,7 @@
  * @Author: willclass
  * @Date:   2015-10-28 14:41:09
  * @Last Modified by:   willclass
- * @Last Modified time: 2015-10-29 15:12:30
+ * @Last Modified time: 2015-11-09 14:24:58
  */
 
 'use strict';
@@ -10,7 +10,8 @@
 var http = require("http"),
 	cookie = "", host = "localhost",
 	type = 'application/json',
-	method = 'POST';
+	method = 'POST',
+	port = 80;
 
 
 var client = {
@@ -20,11 +21,11 @@ var client = {
 
 		var _options = {
 			hostname: host,
-			port: 80,
+			port: port,
 			path: url,
 			method: method,
 			headers: {
-				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36',
+				// 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36',
 				'Content-Type': type,
 				'Content-Length': _datalth,
 				'Cookie': cookie
@@ -53,6 +54,9 @@ var client = {
 	},
 	setMethod: function(value) {
 		method = value;
+	},
+	setPort: function(value) {
+		port = value;
 	},
 	setCookie: function(name, value) {
 		cookie = name + "=" + value;
