@@ -41,6 +41,8 @@ function base64encode(str) {
      }
      return out;
 }
+
+
 function base64decode(str) {
     if (!str) {return };
      var c1, c2, c3, c4;

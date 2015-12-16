@@ -1,26 +1,28 @@
 function getQueryString(name) {
-var reg = new RegExp("(^|\\?|&)"+ name +"=([^&]*)(\\s|&|$)", "i");  
-    var url = decodeURIComponent(location.href);
-	if (reg.test(location.href)) return unescape(RegExp.$2.replace(/\+/g, " ")); return "";  
+  var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+  var url = decodeURIComponent(location.href);
+  if (reg.test(location.href)) return unescape(RegExp.$2.replace(/\+/g, " "));
+  return "";
 };
-function getUrlParams(){
-  var search = window.location.search;
-  // 写入数据字典
-  var tmparray = search.substr(1, search.length).split("&");
-  var paramsArray = new Array;
-  if(tmparray != null){
-    for (var i = 0; i < tmparray.length; i++) {
-      var reg=/=/;
-      var set1 = tmparray[i].replace(reg, '&');
-      var tmpStr2 = set1.split('&');
-      var array = new Array;
-      array[tmpStr2[0]] = tmpStr2[1];
-      paramsArray.push(array);
-    }
-  }
-	console.log(paramsArray);
-  // 将参数数组进行返回
-  return paramsArray;
+
+function getUrlParams() {  
+  var search = window.location.search;   // 写入数据字典
+    
+  var tmparray = search.substr(1, search.length).split("&");  
+  var paramsArray = new Array;  
+  if (tmparray != null) {    
+    for (var i = 0; i < tmparray.length; i++) {      
+      var reg = /=/;      
+      var set1 = tmparray[i].replace(reg, '&');      
+      var tmpStr2 = set1.split('&');      
+      var array = new Array;      
+      array[tmpStr2[0]] = tmpStr2[1];      
+      paramsArray.push(array);    
+    }  
+  }
+  console.log(paramsArray);   // 将参数数组进行返回
+    
+  return paramsArray;
 }
 
 
@@ -49,8 +51,8 @@ function urlparse(qs, sep, eq, options) {
 
   for (var i = 0; i < len; ++i) {
     var x = qs[i].replace(regexp, '%20'),
-        idx = x.indexOf(eq),
-        kstr, vstr, k, v;
+      idx = x.indexOf(eq),
+      kstr, vstr, k, v;
 
     if (idx >= 0) {
       kstr = x.substr(0, idx);
@@ -58,12 +60,10 @@ function urlparse(qs, sep, eq, options) {
     } else {
       kstr = x;
       vstr = '';
-    }	
+    }
 
 
 
-
-    
     try {
       k = decodeURIComponent(kstr);
       v = decodeURIComponent(vstr);

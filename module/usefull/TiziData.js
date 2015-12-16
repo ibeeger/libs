@@ -2,7 +2,7 @@
  * @Author: willclass
  * @Date:   2015-10-29 14:50:43
  * @Last Modified by:   willclass
- * @Last Modified time: 2015-10-30 14:28:16
+ * @Last Modified time: 2015-11-11 15:33:56
  */
 
 'use strict';
@@ -50,7 +50,7 @@ var sub = key[2] == 11 ? key[2]+"/1372" : key[2];
 var colname = key[3]
 
 
-var url = dbconf.dbol;
+var url = dbconf.db;
 
 MongoClient.connect(url, function(err, sdb) {
 	assert.equal(err, null);
@@ -123,7 +123,7 @@ var options ={
 
 		// console.log(JSON.stringify(json));
 
-		var col = db.collection("Tizi_chuzhong_"+colname);
+		var col = db.collection("Tizi_gaozhong_"+colname);
 		col.insertMany(json,function(){
 			console.log(arguments);
 			process.exit();

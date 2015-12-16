@@ -13,7 +13,6 @@
 	}
 }
 .ui-img-txt-item {
-	margin: 0 -15px 0 -15px;
 	clear: both;
 
 	&:after {
@@ -54,16 +53,17 @@
 }
 .ui-txt-list {
 	li {
-		padding: 0 @distance;
 		height: 30px;
 		line-height: 30px;
 		clear: both;
-		span{float: right;}
+		position: relative;
+		span{ position: absolute; right:  @distance; top: 0;}
 		&:hover{
 			
 		}
-
 		a {
+			display: block;
+			padding: 0 @distance;
 			font-size: @common-size;
 		}
 	}
@@ -73,14 +73,11 @@
 	height: 30px;
 	line-height: 30px;
 	border-bottom: 1px solid @bdcolor;
-
 	h4,h5,h6{
-		color: @color-1;
 		position: relative;
 		height: 30px;
 		float: left;
 		padding: 0 15px;
-		border-bottom: 1px solid @color-1;
 	}
 }
 
@@ -92,7 +89,6 @@
 	 li{float: left; text-align: center; height: 100%;
 	 	cursor: pointer;
 		&.cur{
-			background: @color-1;
 			color: #fff;
 		}
 	 }

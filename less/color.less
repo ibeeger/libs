@@ -1,31 +1,86 @@
-.ui-bg-1 {
-	background-color: @color-1;
-	color: @color-0;
-}
-.ui-bg-2 {
-	background-color: @color-2;
-	color: @color-0;
-}
-.ui-bg-3 {
-	background-color: @color-3;
-	color: @color-0;
-}
-.ui-bg-4 {
-	background-color: @color-4;
-	color: @color-3;
-}
-.ui-bg-5 {
-	background-color: @color-5;
-	color: @color-3;
-}
+@color-orange: #f2af71;
+@color-green: #5fd4a1;
+@color-blue: #57d1ff;
+@color-pink: #f37690;
 
-.blue-btn{
-	background-color: @color-5;
-	color: @color-0;
-	&:hover{
-		color: @color-0;
-		background-color: @color-5 * .9;
+.b-orange{
+	background-color: @color-orange;
+	color: #fff;
+	a{
+		&:hover{
+			background-color: @color-orange * 1.15;
+		}
 	}
 }
 
+.f-orange{
+	color:@color-orange;
+	a:hover{
+		color: @color-orange * 1.15
+	}
+}
 
+.b-green{
+	background-color: @color-green;
+	color: #fff;
+	a{
+		&:hover{
+			background-color: @color-green * 1.15;
+		}
+	}
+}
+.f-green{
+	color:@color-green;
+	a:hover{
+		color: @color-green * 1.15
+	}
+}
+
+.b-blue{
+	background-color: @color-blue;
+	color: #fff;
+	a{
+		&:hover{
+			background-color: @color-blue * 1.15;
+		}
+	}
+}
+.f-blue{
+	color:@color-blue;
+	a:hover{
+		color: @color-blue * 1.15
+	}
+}
+
+.b-pink{
+	background-color: @color-pink;
+	color: #fff;
+	a{
+		&:hover{
+			background-color: @color-pink * 1.15;
+		}
+	}
+}
+.f-pink{
+	color:@color-pink;
+	a:hover{
+		color: @color-pink * 1.15
+	}
+}
+
+.f-black{
+	color: #000;
+}
+
+.f-gray{
+	color: #666;
+}
+.b-gray{
+	@gray : #888;
+	background-color: @gray;
+	color: #fff;
+	a{color: #fff;}
+	a:hover{
+		background-color: @gray * 1.15;
+	}
+}
