@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dragSomething</title>
+	<style>
+		*{margin: 0; padding: 0;}
+
+		.box,div{ border: 1px solid #ccc; border-radius: 10px; width: 200px; height: 200px; margin: 50px auto; padding:  20px;}
+		.box p{ width: calc(100% - 2px); height: calc(100% - 2px); border:2px dashed #ccc; line-height: 200px; text-align: center; color: #fefefe; font-size: 15px; text-shadow:-1px -1px 0 #777;}
+		.success{ background-color: #fefefe;}
+		.fail{background-color: #cc0}
+		.hover{ background-color: #999;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p id="status"> 拖动到这里</p>
+	</div>
+
+	<script>
+			var holder = document.querySelector('.box'),
+			    state = document.getElementById('status');
+
+			if (typeof window.FileReader === 'undefined') {
+			  state.className = 'fail';
+			} else {
+			  state.className = 'success';
+			  state.innerHTML = 'File API';
+			}
+			 
+			holder.ondragover = function () { state.className = 'hover'; return false; };
+			holder.ondragend = function () { state.className = ''; return false; };
+			holder.ondrop = function (e) {
+			 state.className = '';
+			  e.preventDefault();
+
+			  var file = e.dataTransfer.files[0],
+			      reader = new FileReader();
+			  reader.onload = function (event) {
+			    console.log(event.target);
+			    holder.style.background = 'url(' + event.target.result + ') no-repeat center';
+			  };
+			  console.log(file);
+			  reader.readAsDataURL(file);
+
+			  return false;
+			};
+	</script>
+</body>
+</html>

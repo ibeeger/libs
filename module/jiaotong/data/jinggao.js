@@ -1,0 +1,236 @@
+var arr = [{
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_1.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_2.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_3.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_4.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_5.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_6.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_7.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_8.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_9.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_10.jpg"
+}, {
+	"name": "交叉路口标志",
+	"picurl": "/biaozhi/jinggao_11.jpg"
+}, {
+	"name": "向右急转弯标志",
+	"picurl": "/biaozhi/jinggao_12.jpg"
+}, {
+	"name": "向左急转弯标志",
+	"picurl": "/biaozhi/jinggao_13.jpg"
+}, {
+	"name": "连续弯路标志",
+	"picurl": "/biaozhi/jinggao_14.jpg"
+}, {
+	"name": "上坡路标志",
+	"picurl": "/biaozhi/jinggao_15.jpg"
+}, {
+	"name": "下坡路标志",
+	"picurl": "/biaozhi/jinggao_16.jpg"
+}, {
+	"name": "连续下坡标志",
+	"picurl": "/biaozhi/jinggao_17.jpg"
+}, {
+	"name": "两侧变窄标志",
+	"picurl": "/biaozhi/jinggao_18.jpg"
+}, {
+	"name": "右侧变窄标志",
+	"picurl": "/biaozhi/jinggao_19.jpg"
+}, {
+	"name": "左侧变窄标志",
+	"picurl": "/biaozhi/jinggao_20.jpg"
+}, {
+	"name": "窄桥标志",
+	"picurl": "/biaozhi/jinggao_21.jpg"
+}, {
+	"name": "易滑标志",
+	"picurl": "/biaozhi/jinggao_22.jpg"
+}, {
+	"name": "双向交通标志",
+	"picurl": "/biaozhi/jinggao_23.jpg"
+}, {
+	"name": "注意行人标志",
+	"picurl": "/biaozhi/jinggao_24.jpg"
+}, {
+	"name": "注意儿童标志",
+	"picurl": "/biaozhi/jinggao_25.jpg"
+}, {
+	"name": "注意牲畜标志",
+	"picurl": "/biaozhi/jinggao_26.jpg"
+}, {
+	"name": "渡口标志",
+	"picurl": "/biaozhi/jinggao_27.jpg"
+}, {
+	"name": "注意野生动物标志",
+	"picurl": "/biaozhi/jinggao_28.jpg"
+}, {
+	"name": "注意信号灯标志",
+	"picurl": "/biaozhi/jinggao_29.jpg"
+}, {
+	"name": "村庄标志",
+	"picurl": "/biaozhi/jinggao_30.jpg"
+}, {
+	"name": "注意落石标志",
+	"picurl": "/biaozhi/jinggao_31.jpg"
+}, {
+	"name": "注意落石标志",
+	"picurl": "/biaozhi/jinggao_32.jpg"
+}, {
+	"name": "注意横风标志",
+	"picurl": "/biaozhi/jinggao_33.jpg"
+}, {
+	"name": "傍山险路标志",
+	"picurl": "/biaozhi/jinggao_34.jpg"
+}, {
+	"name": "傍山险路标志",
+	"picurl": "/biaozhi/jinggao_35.jpg"
+}, {
+	"name": "堤坝路标志",
+	"picurl": "/biaozhi/jinggao_36.jpg"
+}, {
+	"name": "堤坝路标志",
+	"picurl": "/biaozhi/jinggao_37.jpg"
+}, {
+	"name": "隧道标志",
+	"picurl": "/biaozhi/jinggao_38.jpg"
+}, {
+	"name": "驼峰桥标志",
+	"picurl": "/biaozhi/jinggao_39.jpg"
+}, {
+	"name": "路面不平标志",
+	"picurl": "/biaozhi/jinggao_40.jpg"
+}, {
+	"name": "路面高突标志",
+	"picurl": "/biaozhi/jinggao_41.jpg"
+}, {
+	"name": "路面低洼标志",
+	"picurl": "/biaozhi/jinggao_42.jpg"
+}, {
+	"name": "过水路面标志",
+	"picurl": "/biaozhi/jinggao_43.jpg"
+}, {
+	"name": "有人看守铁道路口标志",
+	"picurl": "/biaozhi/jinggao_44.jpg"
+}, {
+	"name": "无人看守铁道路口标志",
+	"picurl": "/biaozhi/jinggao_45.jpg"
+}, {
+	"name": "叉形符号标志",
+	"picurl": "/biaozhi/jinggao_46.jpg"
+}, {
+	"name": "注意非机动车标志",
+	"picurl": "/biaozhi/jinggao_47.jpg"
+}, {
+	"name": "注意残疾人标志",
+	"picurl": "/biaozhi/jinggao_48.jpg"
+}, {
+	"name": "事故易发路段标志",
+	"picurl": "/biaozhi/jinggao_49.jpg"
+}, {
+	"name": "慢行标志",
+	"picurl": "/biaozhi/jinggao_50.jpg"
+}, {
+	"name": "右侧绕行标志",
+	"picurl": "/biaozhi/jinggao_51.jpg"
+}, {
+	"name": "左侧绕行标志",
+	"picurl": "/biaozhi/jinggao_52.jpg"
+}, {
+	"name": "左右绕行标志",
+	"picurl": "/biaozhi/jinggao_53.jpg"
+}, {
+	"name": "注意危险标志",
+	"picurl": "/biaozhi/jinggao_54.jpg"
+}, {
+	"name": "施工标志",
+	"picurl": "/biaozhi/jinggao_55.jpg"
+}, {
+	"name": "建议减速标志",
+	"picurl": "/biaozhi/jinggao_56.jpg"
+}, {
+	"name": "隧道开车灯标志",
+	"picurl": "/biaozhi/jinggao_57.jpg"
+}, {
+	"name": "注意潮汐车道标志",
+	"picurl": "/biaozhi/jinggao_58.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_59.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_60.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_61.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_62.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_63.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_64.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_65.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_66.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_67.jpg"
+}, {
+	"name": "避险车道标志",
+	"picurl": "/biaozhi/jinggao_68.jpg"
+}, {
+	"name": "注意合流标志",
+	"picurl": "/biaozhi/jinggao_69.jpg"
+}, {
+	"name": "注意合流标志",
+	"picurl": "/biaozhi/jinggao_70.jpg"
+}, {
+	"name": "丁字平面交叉标志",
+	"picurl": "/biaozhi/jinggao_71.jpg"
+}, {
+	"name": "十字平面交叉标志",
+	"picurl": "/biaozhi/jinggao_72.jpg"
+}, {
+	"name": "注意保持车距标志",
+	"picurl": "/biaozhi/jinggao_73.jpg"
+}, {
+	"name": "注意前方车辆排队标志",
+	"picurl": "/biaozhi/jinggao_74.jpg"
+}, {
+	"name": "注意不利气象条件标志",
+	"picurl": "/biaozhi/jinggao_75.jpg"
+}, {
+	"name": "注意路面结冰标志",
+	"picurl": "/biaozhi/jinggao_76.jpg"
+}, {
+	"name": "注意雾天标志",
+	"picurl": "/biaozhi/jinggao_77.jpg"
+}];
+module.exports = {
+	name :"警告标志",
+	arr : arr
+}

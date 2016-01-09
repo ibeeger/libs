@@ -1,8 +1,9 @@
 /* 
  * @Author: willclass
  * @Date:   2015-10-29 14:50:43
+   @about  课文  
  * @Last Modified by:   willclass
- * @Last Modified time: 2015-11-11 15:33:56
+ * @Last Modified time: 2015-12-16 20:33:42
  */
 
 'use strict';
@@ -15,29 +16,9 @@ var jsdom = require("jsdom");
 var MongoClient = require('mongodb').MongoClient,
 	db;
 
-// http://www.tizi.com/teacher/paper/question/1 初中语文
-// http://www.tizi.com/teacher/paper/question/2 初中数学
-// http://www.tizi.com/teacher/paper/question/3 初中英语
-// http://www.tizi.com/teacher/paper/question/4 初中物理
-// http://www.tizi.com/teacher/paper/question/5 初中化学
-// http://www.tizi.com/teacher/paper/question/6 初中生物
-// http://www.tizi.com/teacher/paper/question/7 初中政治
-// http://www.tizi.com/teacher/paper/question/8 初中历史
-// http://www.tizi.com/teacher/paper/question/9 初中地理
 
+// http://www.pep.com.cn/gzyw/jszx/tbjxzy/kbjc/dzkb/bx1/201009/t20100903_867996.htm
 
-
-
-
-// http://www.tizi.com/teacher/paper/question/10 高中语文
-// http://www.tizi.com/teacher/paper/question/11/1372 高中数学
-// http://www.tizi.com/teacher/paper/question/12 高中英语
-// http://www.tizi.com/teacher/paper/question/13 高中物理
-// http://www.tizi.com/teacher/paper/question/14 高中化学
-// http://www.tizi.com/teacher/paper/question/15 高中生物
-// http://www.tizi.com/teacher/paper/question/16 高中政治
-// http://www.tizi.com/teacher/paper/question/17 高中历史
-// http://www.tizi.com/teacher/paper/question/18 高中地理
 
 
 var key = process.argv;
