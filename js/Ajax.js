@@ -1,23 +1,35 @@
 /* 
  * @Author: willclass
  * @Date:   2015-12-16 18:32:18
- * @Last Modified by:   cuixiaohan
- * @Last Modified time: 2015-12-16 20:07:45
+ * @Last Modified by:   willclass
+ * @Last Modified time: 2015-12-17 14:35:16
  */
 
 'use strict';
 
 (function() {
-	function Ajax(url) {
-		this.url = url || "/";
-		this.method = "POST";
-		this.data = null;
-		this.file = null;
+
+	
+
+	var url = "/",
+		method = "POST",
+		file = null,
+		data = null,
+		header = null,
+		resData = null;
+
+
+	function Ajax(_url) {
+
+		if (typeof _url == "string" && _url != "" && _url.indexOf("http://") == 0) {
+			url = _url;
+		};
+		return this;
 	};
 
 	Ajax.prototype.setMethod = function(val) {
 		if (typeof val == "string" && val != "") {
-			this.method = val;
+			method = val;
 		};
 	};
 
@@ -37,13 +49,13 @@
 		var formData = new FormData();
 
 		if (!data || typeof data != "object") {
-			return ;
+			return;
 		};
 		for (var k in data) {
-			formData.append(k,data[k]);
+			formData.append(k, data[k]);
 		};
 
-		this.file = formData;
+		file = formData;
 	}
 
 	Ajax.prototype.send = function() {
@@ -59,7 +71,7 @@
 					// return Ajax.prototype.done.call(null,xhr.responseText)
 				} else {
 					_this._data = xhr.status
-					 
+
 					// return Ajax.prototype.done.call(null,xhr.status)
 				};
 			} else {
@@ -71,13 +83,14 @@
 
 		xhr.onprogress = this.progress || null;
 
-		xhr.open(this.method, this.url);
-		if (this.file) {
-			xhr.send(this.file);
-		}else{
+		xhr.open(method, url);
+		if (file) {
+			xhr.send(file);
+		} else {
 			xhr.send();
 
 		};
+		return this;
 	}
 
 	Ajax.prototype.done = function(callback) {
