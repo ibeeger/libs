@@ -24,8 +24,8 @@ var json = {
 		addr: "地址"
 	}
 	// 34
-var pids = 14,
-	curpid = 9;
+var pids = 33,
+	curpid = 1;
 var pages = 0,
 	page = 1;
 
@@ -43,7 +43,7 @@ function getData(query) {
 		src: [jquery],
 		done: function(err, window) {
 			var $ = window.$;
-			pages = 2 || parseInt($(".show_title em").text()/20);
+			pages = $(".show_title em").text()%20 ? parseInt($(".show_title em").text()/20)+1 : parseInt($(".show_title em").text()/20);
 			if ($(".cars_show").find("dd.show").length > 0) {
 				$(".cars_show dl").map(function(index, item) {
 					var it = $(item);
@@ -73,18 +73,16 @@ function getData(query) {
 					getData("pid=" + curpid + "&page=" + page);
 				} else {
 					page = 1;
-					curpid++;
-					if (curpid == pids) {
-						process.exit(0);
-						console.log("结束");
-					};
 					
 					fs.writeFile("./json/"+curpid+".json",JSON.stringify(arr),"utf8",function(){
 						arr = new Array();
 						getData("pid=" + curpid + "&page=" + page);
 					})
-
-					
+					curpid++;
+					if (curpid == pids) {
+						console.log("结束");
+						process.exit(0);
+					};
 				}
 				
 			} else {
@@ -109,4 +107,4 @@ function getData(query) {
 };
 
 
-getData("pid=9");
+getData("pid="+curpid);
