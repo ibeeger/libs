@@ -1,8 +1,8 @@
 /* 
  * @Author: willclass
  * @Date:   2016-02-18 16:16:58
- * @Last Modified by:   willclass
- * @Last Modified time: 2016-02-19 16:08:04
+ * @Last Modified by:   ibeeger
+ * @Last Modified time: 2016-03-08 14:56:47
  */
 
 'use strict';
@@ -24,10 +24,10 @@ var json = {
 		addr: "地址"
 	}
 	// 34
-var pids = 14,
-	curpid = 9;
+var pids = 34,
+	curpid = 1;
 var pages = 0,
-	page = 1;
+	page = 0;
 
 var option = {
 	host: "http://dealer.16888.com/?tag=search&"
@@ -36,18 +36,18 @@ var option = {
 var arr = [];
 
 function getData(query) {
-	console.log(query);
+	
 	jsdom.env({
 		url: option.host + query,
 		// scripts: ["http://code.jquery.com/jquery.js"],
 		src: [jquery],
 		done: function(err, window) {
 			var $ = window.$;
-			pages = 2 || parseInt($(".show_title em").text()/20);
+			pages = Math.ceil($(".show_title em").text()/20);
 			if ($(".cars_show").find("dd.show").length > 0) {
 				$(".cars_show dl").map(function(index, item) {
 					var it = $(item);
-					var addr = it.find("dd.show>p").eq(3).find("a,span").remove();
+					var addr = it.find("dd.show>p").eq(3).remove("a,span");
 					var num = it.find("dd.show>p").eq(0).find("a").eq(1).text();
 					var pic = it.find("dt img").attr("src").trim().split("/");
 					pic = pic[pic.length-1];
@@ -67,40 +67,28 @@ function getData(query) {
 						addr:addr.text()
 					};
 					 arr.push(_item);
-				});
-				if (page < pages) {
-					page++;
-					getData("pid=" + curpid + "&page=" + page);
-				} else {
-					page = 1;
-					curpid++;
-					if (curpid == pids) {
-						process.exit(0);
-						console.log("结束");
-					};
-					
-					fs.writeFile("./json/"+curpid+".json",JSON.stringify(arr),"utf8",function(){
-						arr = new Array();
-						getData("pid=" + curpid + "&page=" + page);
-					})
-
-					
-				}
-				
+				});				 
+				page++;
+				console.log(query)
+				getData("pid=" + curpid + "&page=" + page);
 			} else {
 
 				if (page < pages) {
 					page++;
+					getData("pid=" + curpid + "&page=" + page);
 				} else {
-					page = 1;
-					curpid++;
-					if (curpid == pids) {
-						process.exit(0);
-						console.log("结束");
-					};
-					arr = new Array();
+					fs.writeFile("./json/"+curpid+".json",JSON.stringify(arr),"utf8",function(){
+						page = 1;
+						curpid++;
+
+						if (curpid == pids) {
+							process.exit(0);
+							console.log("结束");
+						};
+						arr = new Array();
+						getData("pid=" + curpid + "&page=" + page);
+					})
 				}
-				getData("pid=" + curpid + "&page=" + page);
 			}
 
 
@@ -109,4 +97,4 @@ function getData(query) {
 };
 
 
-getData("pid=9");
+getData("pid=1");
