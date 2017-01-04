@@ -13,7 +13,7 @@ const URL = require('url');
 var jsdom = require("jsdom");
 const exec = require('child_process').exec;
 const pinyin = require("pinyin");
-var num = 0;
+var num = 9;
 
 // var dbconf = require("./dbconfig.js");
 // var MongoClient = require('mongodb').MongoClient,
@@ -45,7 +45,7 @@ Object.defineProperty(obj, "url", {
 				console.log("===============================================================================");
 				let index = $(".tag-animal>.keshu").index();
 				let img = $(".tag-img").attr("src"); //图片地址
-				let fileType = img.split("/")[img.split("/").length - 1].split(".")[1].slice(0,3); //图片后缀名
+				let fileType = img ? img.split("/")[img.split("/").length - 1].split(".")[1].slice(0,3) : ""; //图片后缀名
 				console.log($(".tag-animal>.keshu>dl").length)
 				let englistName = $(".tag-animal>.keshu>dl").length>1 ?  $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text().toLocaleLowerCase().split("；")[0].split("，")[0] : "";
 
@@ -60,7 +60,14 @@ Object.defineProperty(obj, "url", {
 				let desc = ""; //描述
 				for (var i = 0; i < index; i++) {
 					if ($(".tag-animal>p").eq(i).text()) {
-						desc += $(".tag-animal>p").eq(i).text() + "\n";
+						
+							if (i==1) {
+								desc +=  $(".tag-animal>p").eq(i).text();
+							}else{
+								desc +=  "\n"+$(".tag-animal>p").eq(i).text();
+							}
+							
+						
 					}
 				};
 				console.log(num+"/"+names.length);
