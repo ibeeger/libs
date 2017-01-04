@@ -1,8 +1,8 @@
 /* 
  * @Author: willclass
  * @Date:   2016-02-18 16:16:58
- * @Last Modified by:   willclass
- * @Last Modified time: 2016-02-19 16:08:04
+ * @Last Modified by:   ibeeger
+ * @Last Modified time: 2016-03-08 14:56:47
  */
 
 'use strict';
@@ -24,10 +24,14 @@ var json = {
 		addr: "地址"
 	}
 	// 34
+<<<<<<< HEAD
 var pids = 33,
+=======
+var pids = 34,
+>>>>>>> d580909ee1ad277055dd197b220a4626f52f8f74
 	curpid = 1;
 var pages = 0,
-	page = 1;
+	page = 0;
 
 var option = {
 	host: "http://dealer.16888.com/?tag=search&"
@@ -36,18 +40,22 @@ var option = {
 var arr = [];
 
 function getData(query) {
-	console.log(query);
+	
 	jsdom.env({
 		url: option.host + query,
 		// scripts: ["http://code.jquery.com/jquery.js"],
 		src: [jquery],
 		done: function(err, window) {
 			var $ = window.$;
+<<<<<<< HEAD
 			pages = $(".show_title em").text()%20 ? parseInt($(".show_title em").text()/20)+1 : parseInt($(".show_title em").text()/20);
+=======
+			pages = Math.ceil($(".show_title em").text()/20);
+>>>>>>> d580909ee1ad277055dd197b220a4626f52f8f74
 			if ($(".cars_show").find("dd.show").length > 0) {
 				$(".cars_show dl").map(function(index, item) {
 					var it = $(item);
-					var addr = it.find("dd.show>p").eq(3).find("a,span").remove();
+					var addr = it.find("dd.show>p").eq(3).remove("a,span");
 					var num = it.find("dd.show>p").eq(0).find("a").eq(1).text();
 					var pic = it.find("dt img").attr("src").trim().split("/");
 					pic = pic[pic.length-1];
@@ -67,17 +75,33 @@ function getData(query) {
 						addr:addr.text()
 					};
 					 arr.push(_item);
-				});
+				});				 
+				page++;
+				console.log(query)
+				getData("pid=" + curpid + "&page=" + page);
+			} else {
+
 				if (page < pages) {
 					page++;
 					getData("pid=" + curpid + "&page=" + page);
 				} else {
+<<<<<<< HEAD
 					page = 1;
 					
+=======
+>>>>>>> d580909ee1ad277055dd197b220a4626f52f8f74
 					fs.writeFile("./json/"+curpid+".json",JSON.stringify(arr),"utf8",function(){
+						page = 1;
+						curpid++;
+
+						if (curpid == pids) {
+							process.exit(0);
+							console.log("结束");
+						};
 						arr = new Array();
 						getData("pid=" + curpid + "&page=" + page);
 					})
+<<<<<<< HEAD
 					curpid++;
 					if (curpid == pids) {
 						console.log("结束");
@@ -97,8 +121,9 @@ function getData(query) {
 						console.log("结束");
 					};
 					arr = new Array();
+=======
+>>>>>>> d580909ee1ad277055dd197b220a4626f52f8f74
 				}
-				getData("pid=" + curpid + "&page=" + page);
 			}
 
 
@@ -107,4 +132,8 @@ function getData(query) {
 };
 
 
+<<<<<<< HEAD
 getData("pid="+curpid);
+=======
+getData("pid=1");
+>>>>>>> d580909ee1ad277055dd197b220a4626f52f8f74
