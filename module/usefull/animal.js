@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2017-01-04 16:54:14
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-04 19:57:17
+ * @Last Modified time: 2017-01-04 20:03:51
  */
 
 'use strict';
@@ -32,47 +32,43 @@ Object.defineProperty(obj, "url", {
 			done: function(err, window) {
 				var $ = window.$;
 				var anim = {};
-					console.log("===============");
-					let index = $(".tag-animal>.keshu").index();
-					let img = $(".tag-img").attr("src"); //图片地址
-					let fileType = img.split("/")[img.split("/").length - 1].split(".")[1]; //图片后缀名
-					let englistName = $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text();
+				console.log("===============");
+				let index = $(".tag-animal>.keshu").index();
+				let img = $(".tag-img").attr("src"); //图片地址
+				let fileType = img.split("/")[img.split("/").length - 1].split(".")[1]; //图片后缀名
+				let englistName = $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text();
 
-					if (!englistName || !englistName.match(/[a-zA-Z]/g)) {
-						englistName = pinyin(name, {
-							style: pinyin.STYLE_NORMAL
-						}).join(",");
+				if (!englistName || !englistName.match(/[a-zA-Z]/g)) {
+					englistName = pinyin(name, {
+						style: pinyin.STYLE_NORMAL
+					}).join(",");
 
-					};
+				};
 
-					let filename = englistName;
-					let desc = ""; //描述
-					for (var i = 0; i < index; i++) {
-						if ($(".tag-animal>p").eq(i).text()) {
-							desc += $(".tag-animal>p").eq(i).text() + "\n";
-						}
-					};
-					console.log("名称" + name);
-					console.log("英文名" + englistName);
-					console.log("图片类型" + fileType)
-					console.log("描述:" + desc);
-					console.log("图片地址:" + img);
-					if (img) {
-						exec("wget " + img + " -O " + __dirname + "/anims/" + filename + "." + fileType, function() {
-							if (arguments[0]) {
-								console.log("下载到：" + num)
-								process.exit(0);
-							}
-							num++;
-							do {
-								obj.url = names[num];
-							} while (num > names.length)
-						})
+				let filename = englistName;
+				let desc = ""; //描述
+				for (var i = 0; i < index; i++) {
+					if ($(".tag-animal>p").eq(i).text()) {
+						desc += $(".tag-animal>p").eq(i).text() + "\n";
 					}
-
-				
-
-
+				};
+				console.log("名称" + name);
+				console.log("英文名" + englistName);
+				console.log("图片类型" + fileType)
+				console.log("描述:" + desc);
+				console.log("图片地址:" + img);
+				if (img) {
+					exec("wget " + img + " -O " + __dirname + "/anims/" + filename + "." + fileType, function() {
+						if (arguments[0]) {
+							console.log("下载到：" + num)
+							process.exit(0);
+						}
+					})
+				};
+				num++;
+				do {
+					obj.url = names[num];
+				} while (num > names.length)
 
 			}
 		};
