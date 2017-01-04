@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2017-01-04 16:54:14
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-04 20:33:31
+ * @Last Modified time: 2017-01-04 20:38:03
  */
 
 'use strict';
@@ -47,7 +47,7 @@ Object.defineProperty(obj, "url", {
 				let img = $(".tag-img").attr("src"); //图片地址
 				let fileType = img.split("/")[img.split("/").length - 1].split(".")[1]; //图片后缀名
 				console.log($(".tag-animal>.keshu>dl").length)
-				let englistName = $(".tag-animal>.keshu>dl").length>1 ?  $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text().toLocaleLowerCase().split("；")[0] : "";
+				let englistName = $(".tag-animal>.keshu>dl").length>1 ?  $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text().toLocaleLowerCase().split("；")[0].split("，")[0] : "";
 
 				if (!englistName || !englistName.match(/[a-zA-Z]/g)) {
 					englistName = pinyin(name, {
