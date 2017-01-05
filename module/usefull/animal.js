@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2017-01-04 16:54:14
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-04 20:38:03
+ * @Last Modified time: 2017-01-05 11:44:20
  */
 
 'use strict';
@@ -13,7 +13,9 @@ const URL = require('url');
 var jsdom = require("jsdom");
 const exec = require('child_process').exec;
 const pinyin = require("pinyin");
-var num = 9;
+var num = 0;
+
+const fs = require("fs");
 
 // var dbconf = require("./dbconfig.js");
 // var MongoClient = require('mongodb').MongoClient,
@@ -23,11 +25,13 @@ var num = 9;
 // MongoClient.connect(addr, function(err, sdb) {
 // 	assert.equal(err, null);
 // 	db = sdb.collection("anims");
-	
+
 // })
 
+var mammals = [];
+var jsonfilename = 'insect';
 
-
+var anims = names[jsonfilename];
 
 var obj = {};
 var url = "http://www.aidongwu.net/dongwu/";
@@ -35,42 +39,37 @@ var newurl = "http://www.aidongwu.net/dongwu/"
 Object.defineProperty(obj, "url", {
 	set: function(name) {
 		url = newurl + encodeURI(name);
-		console.log(url);
+	
 		let options = {
 			url: url,
 			userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36",
-			scripts: ["http://libs.willclass.com/libs/jquery/1.11.1/jquery.min.js"],
+			scripts: ["http://local.testb.huitong.com/javascripts/jquery.js"],
 			done: function(err, window) {
 				var $ = window.$;
 				console.log("===============================================================================");
+				console.log(name);
 				let index = $(".tag-animal>.keshu").index();
 				let img = $(".tag-img").attr("src"); //图片地址
-				let fileType = img ? img.split("/")[img.split("/").length - 1].split(".")[1].slice(0,3) : ""; //图片后缀名
-				console.log($(".tag-animal>.keshu>dl").length)
-				let englistName = $(".tag-animal>.keshu>dl").length>1 ?  $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text().toLocaleLowerCase().split("；")[0].split("，")[0] : "";
+				let fileType = img ? img.split("/")[img.split("/").length - 1].split(".")[1].slice(0, 3) : ""; //图片后缀名
+				let englistName = $(".tag-animal>.keshu>dl").length > 1 ? $(".tag-animal>.keshu>dl:eq(1)").find(":last-child").text().replace(/([^a-zA-Z]*)/g,"").toLocaleLowerCase() : "";
+				let pname = pinyin(name).join("").toLocaleLowerCase();
+				 
 
-				if (!englistName || !englistName.match(/[a-zA-Z]/g)) {
-					englistName = pinyin(name, {
-						style: pinyin.STYLE_NORMAL
-					}).join("").toLocaleLowerCase();
-
-				};
-
-				let filename = englistName;
+				let filename = englistName || pinyin(name,{style:0}).join("").toLocaleLowerCase(); 
 				let desc = ""; //描述
 				for (var i = 0; i < index; i++) {
 					if ($(".tag-animal>p").eq(i).text()) {
-						
-							if (i==1) {
-								desc +=  $(".tag-animal>p").eq(i).text();
-							}else{
-								desc +=  "\n"+$(".tag-animal>p").eq(i).text();
-							}
-							
-						
+
+						if (i == 1) {
+							desc += $(".tag-animal>p").eq(i).text();
+						} else {
+							desc += "\n" + $(".tag-animal>p").eq(i).text();
+						}
+
+
 					}
 				};
-				console.log(num+"/"+names.length);
+				console.log(num + "/" + anims.length);
 				// console.log("名称" + name);
 				// console.log("英文名" + englistName);
 				// console.log("图片类型" + fileType)
@@ -80,11 +79,12 @@ Object.defineProperty(obj, "url", {
 				let anim = {
 					name: name,
 					ename: englistName,
+					pinyin:pname,
 					desc: desc,
-					img: filename + "." + fileType
+					img: fileType ?  (filename + "." + fileType) : ""
 				};
 
-				console.log(anim);
+				mammals.push(anim);
 				// db.insert(anim, function(err) {
 				// 	if (err) {
 				// 		process.exit(0)
@@ -93,8 +93,9 @@ Object.defineProperty(obj, "url", {
 				// })
 
 				if (img) {
-					exec("wget " + img + " -O " + __dirname + "/anims/" + filename + "." + fileType, function() {
+					exec("wget " + img + " -O " + __dirname + "/anims/"+jsonfilename+"/" + filename + "." + fileType, function() {
 						if (arguments[0]) {
+							console.log(arguments[0]);
 							console.log("下载到：" + num)
 							process.exit(0);
 						}
@@ -102,10 +103,18 @@ Object.defineProperty(obj, "url", {
 				};
 				setTimeout(function() {
 					num++;
+					if (num == anims.length) {
+						fs.open(__dirname + "/anims/"+jsonfilename+".json", 'w+', function(err) {
+							console.log(err);
+							fs.writeFileSync(__dirname + "/anims/"+jsonfilename+".json", JSON.stringify(mammals));
+							process.exit(0)
+						});
+
+					}
 					do {
-						obj.url = names[num];
-					} while (num > names.length)
-				}, 2500)
+						obj.url = anims[num];
+					} while (num > anims.length)
+				}, 2000)
 
 
 			}
@@ -120,4 +129,4 @@ Object.defineProperty(obj, "url", {
 	configurable: true
 });
 
-obj.url = names[num];
+obj.url = anims[num];
