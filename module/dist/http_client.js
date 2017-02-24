@@ -1,8 +1,8 @@
 /* 
  * @Author: willclass
  * @Date:   2015-10-28 14:41:09
- * @Last Modified by:   willclass
- * @Last Modified time: 2015-11-09 14:24:58
+ * @Last Modified by:   ibeeger
+ * @Last Modified time: 2017-01-19 18:17:23
  */
 
 'use strict';
@@ -25,14 +25,15 @@ var client = {
 			path: url,
 			method: method,
 			headers: {
-				// 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36',
+				'User-Agent': 'iPhone 6s',
 				'Content-Type': type,
 				'Content-Length': _datalth,
-				'Cookie': cookie
+				// 'Cookie': cookie
 			}
 		};
 
 		var _req = http.request(_options, function(res) {
+			console.log(res.statusCode);
 			var str = "";
 			res.setEncoding('utf8');
 			res.on("data",function(body){
