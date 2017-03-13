@@ -13,4 +13,5 @@ node_modules
 /test
 /spm_modules/
 /src      
+/mylibs/module/usefull/anims
 /build                                                                                                                         
