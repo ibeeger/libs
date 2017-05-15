@@ -1,8 +1,8 @@
 /*
 * @Author: willclass
 * @Date:   2015-10-19 11:45:56
-* @Last Modified by:   willclass
-* @Last Modified time: 2015-10-28 14:36:07
+* @Last Modified by:   ibeeger
+* @Last Modified time: 2017-05-10 15:06:23
 * 测试本地提交数据  服务端获取信息
 */
 
@@ -22,6 +22,9 @@ function post(host,d,url,callback){
             'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36',
             'Content-Type': 'application/json',
             'Content-Length':lth,
+            'x-real-ip': '222',
+            'remoteAddress':'222.111.111.222',
+            'x-forwarded-for': '222.128.13.290',
             'Cookie':"HT01=U3Jid3dDUUE1NXdGWHp2SU81MzQ3Zz09|11" //
             //             U3Jid3dDUUE1NXdGWHp2SU81MzQ3Zz09
           }
@@ -53,10 +56,15 @@ function post(host,d,url,callback){
 }
 
 
+post("api.ibeeger.com",{},"/",function(d){
+    console.log(d)
+})
+
 module.exports = {
     post : post
 }
-// post({'a':'1'},"/");
+
+
 
 
 /*
