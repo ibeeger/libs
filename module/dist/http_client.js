@@ -2,7 +2,7 @@
  * @Author: willclass
  * @Date:   2015-10-28 14:41:09
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-03-29 16:53:09
+ * @Last Modified time: 2017-06-28 13:21:22
  */
 
 'use strict';
@@ -30,7 +30,7 @@ var client = {
 				"HT-Version-Code":30500,
 				"HT-Device-id":353347063280671,
 				// 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
-				'Content-Type': type,
+				'Content-Type': type
 				// 'Content-Length': _datalth,
 				// 'Cookie': "HT_bench_01=MlZJMU9xcUFoTFFGWHp2SU81MzQ3Zz09|0; HT_SSO_COOKIE=U3VpSmEvazdndjBGWHp2SU81MzQ3Zz09|11|1490764828278|31008c327808a066b625d913f66de9b8; JSESSIONID=FC0B0772190EE9B0EEA21BE637F06F54; sid=1490771544067"
 			}

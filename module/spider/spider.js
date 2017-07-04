@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-19 16:45:25
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-05-10 16:41:14
+* @Last Modified time: 2017-06-28 13:27:57
 */
 
 'use strict';
@@ -58,17 +58,17 @@ const Oit = require("./set.js");
 
 const pattern = {
  	set:function(obj){
- 		client.post(obj.url+"?token="+token,obj.json,function(data){
- 			console.log(JSON.parse(data)["msg"]);
-			One.url = {
-				url:furl,
-				json:{
-					subjectCode:2,
-					size:30,
-					chapterId:obj.json["chapterId"]+1
-				}
-			}
-		})
+ 	// 	client.post(obj.url+"?token="+token,obj.json,function(data){
+ 	// 		console.log(JSON.parse(data)["msg"]);
+		// 	One.url = {
+		// 		url:furl,
+		// 		json:{
+		// 			subjectCode:2,
+		// 			size:30,
+		// 			chapterId:obj.json["chapterId"]+1
+		// 		}
+		// 	}
+		// })
  	}
  }
 
@@ -79,7 +79,10 @@ One.url = {
 	json:fjson
 }
 
-// client.post(furl+"?token="+token,fjson,function(data){
-// 	console.dir(data)
-// })
+for(var i=0; i<500; i++)
+{
+	client.post(furl+"?token="+token,fjson,function(data){
+		console.dir(data)
+	})
 
+}

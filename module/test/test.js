@@ -1,24 +1,24 @@
 /* 
  * @Author: willclass
  * @Date:   2015-10-28 15:01:02
- * @Last Modified by:   willclass
- * @Last Modified time: 2015-10-29 10:10:16
+ * @Last Modified by:   ibeeger
+ * @Last Modified time: 2017-06-28 13:22:16
  */
 
 'use strict';
 
 var client = require("../dist/http_client.js");
 // var dbconf = require("./dbconfig.js");
-var assert = require("assert");
-var MongoClient = require('mongodb').MongoClient,
-	db;
+// var assert = require("assert");
+// var MongoClient = require('mongodb').MongoClient,
+// 	db;
 
 // var url = dbconf.db1;
 
 
 client.setHost("web.willclass.com");
-client.setCookie("HT01", "WFF1YVVmSC9SSkVGWHp2SU81MzQ3Zz09|11");//自己
-// client.setCookie("HT01", "dEVPQjlGMWp0SFFGWHp2SU81MzQ3Zz09|11");//王月
+// client.setCookie("HT01", "WFF1YVVmSC9SSkVGWHp2SU81MzQ3Zz09|11");//自己
+client.setCookie("HT01", "dEVPQjlGMWp0SFFGWHp2SU81MzQ3Zz09|11");//王月
 // http://web.willclass.com/student/api/user/fetchInfo
 
 function getData() {
