@@ -2,7 +2,7 @@
  * @Author: willclass
  * @Date:   2015-10-28 15:01:02
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-06-28 13:22:16
+ * @Last Modified time: 2017-07-05 16:22:06
  */
 
 'use strict';
@@ -16,9 +16,9 @@ var client = require("../dist/http_client.js");
 // var url = dbconf.db1;
 
 
-client.setHost("web.willclass.com");
+client.setHost("student.willclass.com");
 // client.setCookie("HT01", "WFF1YVVmSC9SSkVGWHp2SU81MzQ3Zz09|11");//自己
-client.setCookie("HT01", "dEVPQjlGMWp0SFFGWHp2SU81MzQ3Zz09|11");//王月
+// client.setCookie("HT01", "dEVPQjlGMWp0SFFGWHp2SU81MzQ3Zz09|11");//王月
 // http://web.willclass.com/student/api/user/fetchInfo
 
 function getData() {

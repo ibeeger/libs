@@ -2,11 +2,11 @@
 * @Author: ibeeger
 * @Date:   2017-01-19 16:45:25
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-06-28 13:27:57
+* @Last Modified time: 2017-07-11 10:39:21
 */
 
 'use strict';
-var client = require("../dist/http_client.js")
+var client = require("../dist/http_client_mobile.js")
 client.setHost("student.willclass.com");
 client.setMethod("post");
 // client.setType("multipart/form-data");
@@ -51,38 +51,50 @@ var fjson = {
 	chapterId:10002985 
 }
 
+var uurl  ="/api/wireless/v200/user/fetch/info";
+var ujson = {}
 
+
+var editurl = "/api/wireless/v200/user/finishInfo";
+var editjson = {
+	schoolId: 1000001,
+	classNumber:1,
+	enterSchoolYear:2016,
+	majorCode:1
+}
 
 const Oit = require("./set.js");
 
+var schoolid = 1000001;
 
 const pattern = {
  	set:function(obj){
- 	// 	client.post(obj.url+"?token="+token,obj.json,function(data){
- 	// 		console.log(JSON.parse(data)["msg"]);
-		// 	One.url = {
-		// 		url:furl,
-		// 		json:{
-		// 			subjectCode:2,
-		// 			size:30,
-		// 			chapterId:obj.json["chapterId"]+1
-		// 		}
-		// 	}
-		// })
+ 		client.post(obj.url+"?token="+token,obj.json,function(data){
+ 			console.log(data);
+ 			schoolid++;
+ 			let json = {
+					provinceId: schoolid,
+					subjectCode:1	
+				}
+			One.url = {
+				url:curl,
+				json:json
+			}
+		})
  	}
  }
 
 const One = new Oit(pattern);
 
 One.url = {
-	url : furl,
-	json:fjson
+	url : curl,
+	json:cjson
 }
 
-for(var i=0; i<500; i++)
-{
-	client.post(furl+"?token="+token,fjson,function(data){
-		console.dir(data)
-	})
+// for(var i=0; i<500; i++)
+// {
+	// client.post(editurl+"?token="+token,editjson,function(data){
+	// 	console.dir(data)
+	// })
 
-}
+// }

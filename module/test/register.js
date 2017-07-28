@@ -1,8 +1,8 @@
 /* 
 * @Author: willclass
 * @Date:   2015-10-19 11:04:38
-* @Last Modified by:   willclass
-* @Last Modified time: 2015-10-22 16:40:43
+* @Last Modified by:   ibeeger
+* @Last Modified time: 2017-07-05 16:13:32
 */
 
 'use strict';
@@ -33,7 +33,7 @@ post(postData,regurl);
 
 function post(data,url){
 	var options = {
-  hostname: 'web.willclass.com',
+  hostname: 'student.willclass.com',
   port: 80,
   path: url,
   method: 'POST',
