@@ -1,0 +1,110 @@
+JSESSIONID=ADAC081BCED8452F838CDBB53564EFAF; Hm_lvt_daecd84bb62f83c2d1287d077258d200=1505801215; Hm_lpvt_daecd84bb62f83c2d1287d077258d200=1505802180; UM_distinctid=15f0922d6e2195-0c41753a728e8a-2b3d3e17-38400-15f0922d6e4173; CNZZDATA1260761932=51048846-1499207624-https%253A%252F%252Fenterbj.zhongchebaolian.com%252F%7C1513650640
+
+JSESSIONID=ADAC081BCED8452F838CDBB53564EFAF; Hm_lvt_daecd84bb62f83c2d1287d077258d200=1505801215; Hm_lpvt_daecd84bb62f83c2d1287d077258d200=1505802180; UM_distinctid=15f0922d6e2195-0c41753a728e8a-2b3d3e17-38400-15f0922d6e4173; CNZZDATA1260761932=51048846-1499207624-https%253A%252F%252Fenterbj.zhongchebaolian.com%252F%7C1513650640
+
+
+//获取状态
+https://enterbj.zhongchebaolian.com/enterbj/platform/enterbj/entercarlist
+
+
+res 
+//状态审核中
+{
+	"datalist": [{
+		"carid": "5965851",
+		"userid": "4c3cfa356a8d4d1099a026d6f9bfde9c",
+		"licenseno": "冀D950WJ",
+		"cartype": "02",
+		"applyflag": "0",
+		"carapplyarr": [{
+			"applyid": "026201712180339256315857",
+			"carid": "5965851",
+			"cartype": "02",
+			"engineno": "476224V",
+			"enterbjend": "2017-12-25",
+			"enterbjstart": "2017-12-19",
+			"existpaper": "",
+			"licenseno": "冀D950WJ",
+			"loadpapermethod": "",
+			"remark": "5f26ecca3e84b6ab721b13b43b4b6446",
+			"status": "2",
+			"syscode": "",
+			"syscodedesc": "",
+			"userid": "4c3cfa356a8d4d1099a026d6f9bfde9c"
+		}]
+	}],
+	"rescode": "200",
+	"resdes": "获取申请信息列表成功"
+}
+//审核成功
+{
+	"datalist": [{
+		"carid": "5965851",
+		"userid": "4c3cfa356a8d4d1099a026d6f9bfde9c",
+		"licenseno": "冀D950WJ",
+		"cartype": "02",
+		"applyflag": "0",
+		"carapplyarr": [{
+			"applyid": "026201712180339256315857",
+			"carid": "5965851",
+			"cartype": "02",
+			"engineno": "476224V",
+			"enterbjend": "2017-12-25",
+			"enterbjstart": "2017-12-19",
+			"existpaper": "",
+			"licenseno": "冀D950WJ",
+			"loadpapermethod": "",
+			"remark": "5f26ecca3e84b6ab721b13b43b4b6446",
+			"status": "1",
+			"syscode": "",
+			"syscodedesc": "",
+			"userid": "4c3cfa356a8d4d1099a026d6f9bfde9c"
+		}]
+	}],
+	"rescode": "200",
+	"resdes": "获取申请信息列表成功"
+}
+
+
+//获取限号信息
+https://bjjj.zhongchebaolian.com/app_web/mobile/standard/weather
+location	1101
+latx	39.964962
+lngy	116.358912
+acc	4c3cfa356a8d4d1099a026d6f9bfde9c
+res
+{
+	"cityname": "北京市",
+	"date": "12月18日",
+	"week": "周一",
+	"daypicurl": "http://api.map.baidu.com/images/weather/day/qing.png",
+	"nightpicurl": "http://api.map.baidu.com/images/weather/night/qing.png",
+	"weathersection": "6 ~ -6℃",
+	"weatherdes": "晴",
+	"washcar": "较适宜",
+	"dayornight": "1",
+	"weathercode": "0",
+	"astrictno": "1和6",
+	"astrictmt": "2和7",
+	"instructionsurl": "http://static.zhongchebaolian.com:80/photobase/photos/notice/instructions.html",
+	"graphicaldutyurl": "http://static.zhongchebaolian.com:80/photobase/photos/notice/graphicalduty.html",
+	"tgResult": [{
+		"dataurl": "https://web.jiaoguandongtai.zhongchebaolian.com/ssmframe/jtadvisement/detailinfo.do?id=16106",
+		"title": "关于2017欢乐跑中国10公里锦标赛（北京站）期间对部分道路采取临时交通管制的通告"
+	}, {
+		"dataurl": "https://web.jiaoguandongtai.zhongchebaolian.com/ssmframe/jtadvisement/detailinfo.do?id=16087",
+		"title": "关于东城区板厂小学东侧路双玉中街东段采取交通管理措施的通告"
+	}, {
+		"dataurl": "https://web.jiaoguandongtai.zhongchebaolian.com/ssmframe/jtadvisement/detailinfo.do?id=16080",
+		"title": "关于对运载危险化学品车辆采取临时交通管理措施的通告"
+	}, {
+		"dataurl": "https://web.jiaoguandongtai.zhongchebaolian.com/ssmframe/jtadvisement/detailinfo.do?id=16079",
+		"title": "关于对本市部分道路采取交通管理措施的通告"
+	}, {
+		"dataurl": "https://web.jiaoguandongtai.zhongchebaolian.com/ssmframe/jtadvisement/detailinfo.do?id=16077",
+		"title": "关于兴光五街（K12+700至K13+000段）施工期间采取交通管理措施的通告"
+	}],
+	"rescode": "200",
+	"resdes": "获取天气信息成功"
+}
+

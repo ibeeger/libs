@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>进京证在线办理</title>
+<link rel="stylesheet"
+	href="../../static_resources/enterbj/css/base.css" />
+<link rel="stylesheet" href="../../static_resources/enterbj/css/jjz.css" />
+<script src="../../static_resources/enterbj/js/jquery-1.11.1.min.js"></script>
+<script src="../../static_resources/enterbj/js/move.js?123123123"></script>
+<script src="../../static_resources/enterbj/js/index.js"></script>
+<script type="text/javascript"
+	src="../../static_resources/enterbj/js/md5_sign.js"></script>
+
+</head>
+<body>
+	<div id="tanwindow2"></div>
+	<!-- 	loading -->
+	<div class="blac none">
+		<img src="../../static_resources/enterbj/images/loading.gif" alt="" />
+	</div>
+
+	<div class="dec" style="top:0;">
+
+		<img id="homePageImg"
+			src="../../static_resources/enterbj/images/bg01_03.jpg" alt=""	
+			style="width: 100%" />
+	</div>
+	
+
+	<div class="choose">
+		<h2>
+			车辆及进京证信息
+			<button class="none right shenqings" id="flushbtn">刷新</button>
+		</h2>
+		<div class="ulcar_f" id="mycardiv"></div>
+
+	</div>
+	<div id="signrst" style="word-break: break-all;">123123</div><br>
+	<a href="javascript:;" id="btnsign" style="display: block; width: 100%; background-color: #c00; color: #fff; height: 40px;">签名设置</a>
+	 
+
+	<div id="thd"></div>
+
+	<div style="display: none;">
+		<form action="/enterbj-write/platform/enterbj/loadpaper" method="post" id="see">
+		<input id="apply1" name="applyid" value="">
+	</form>
+	<form action="../../platform/enterbj/toVehicleType" method="post"
+		id="applybj" style="padding:10px; text-align: center">
+		<input id="apply2" name="applyid" value=""> <input id="carid"
+			name="carid" value=""> <input id="userid" name="userid"
+			value=""> <input id="gpslon" name="gpslon" value="">
+		<input id="gpslat" name="gpslat" value=""> <input id="imei"
+			name="imei" value=""> 
+			<input id="imsi" name="imsi" value="">
+		<input id="licenseno" name="licenseno" />
+		<input id="cartype" name="cartype" type="hidden"/>
+		<!-- App来源 -->
+		<input id="appsource" name="appsource" type="hidden">
+	</form>
+	</div>
+	
+</body>
+<script>
+if ($('body a').attr('title', '站长统计')) {
+  $('body a').text('');
+}
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android??
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios??
+$(function(){
+	if(isiOS){
+		$(".dec").css("margin-top","-160px")
+	}
+	if(isAndroid || isiOS){
+		$("iosShow").css("display","none");
+		$(".andirodShow").css("display","block");
+		$(".andirodShowText").css("display","block")
+		$("iframe").css("display","block");
+		$(".moreList").click(function(){
+			window.location.href = "https://jiaojing.ynet.com/skill.html?jiaoguan3";
+		})
+		$(".spantitle").click(function(){
+			if($(this).attr("class").indexOf("spanSelect") < 0){
+				$(this).addClass("spanSelect")
+				if($(this).html() == "办理须知"){
+					$(".two").removeClass("spanSelect")
+					$(".show").css("display","block")
+					$(".andirodShowText").css("display","none")
+				}
+				if($(this).html() == "车主资讯"){
+					$(".one").removeClass("spanSelect")
+					$(".show").css("display","none")
+					$(".andirodShowText").css("display","block")
+					
+				}
+			}else{
+				
+			}
+		})
+		
+	}
+// 	else if(isiOS){
+// 		$(".iosShow").css("display","block");
+// 		$(".andirodShow").css("display","none")
+// 		$(".showIos").css("display","block");
+// 		$(".show").css("display","block")
+// 	}
+})
+function toggleSelect(){
+	console.log($(this).attr("class"))
+}
+</script>
+</html>
