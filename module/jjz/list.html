@@ -23,14 +23,8 @@
 		<img src="../../static_resources/enterbj/images/loading.gif" alt="" />
 	</div>
 
-	<div class="dec" style="top:0;">
-
-		<img id="homePageImg"
-			src="../../static_resources/enterbj/images/bg01_03.jpg" alt=""	
-			style="width: 100%" />
-	</div>
 	
-
+	<a href="javascript:;" id="btnopen" style="display: block; width: 100%; background-color: #c00; color: #fff; height: 40px;">open</a>
 	<div class="choose">
 		<h2>
 			车辆及进京证信息
@@ -51,9 +45,9 @@
 	</form>
 	<form action="../../platform/enterbj/toVehicleType" method="post"
 		id="applybj" style="padding:10px; text-align: center">
-		<input id="apply2" name="applyid" value=""> <input id="carid"
-			name="carid" value=""> <input id="userid" name="userid"
-			value=""> <input id="gpslon" name="gpslon" value="">
+		<input id="apply2" name="applyid" value=""> 
+		<input id="carid" name="carid" value=""> 
+		<input id="userid" name="userid" value=""> <input id="gpslon" name="gpslon" value="">
 		<input id="gpslat" name="gpslat" value=""> <input id="imei"
 			name="imei" value=""> 
 			<input id="imsi" name="imsi" value="">
@@ -64,55 +58,5 @@
 	</form>
 	</div>
 	
-</body>
-<script>
-if ($('body a').attr('title', '站长统计')) {
-  $('body a').text('');
-}
-var u = navigator.userAgent;
-var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android??
-var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios??
-$(function(){
-	if(isiOS){
-		$(".dec").css("margin-top","-160px")
-	}
-	if(isAndroid || isiOS){
-		$("iosShow").css("display","none");
-		$(".andirodShow").css("display","block");
-		$(".andirodShowText").css("display","block")
-		$("iframe").css("display","block");
-		$(".moreList").click(function(){
-			window.location.href = "https://jiaojing.ynet.com/skill.html?jiaoguan3";
-		})
-		$(".spantitle").click(function(){
-			if($(this).attr("class").indexOf("spanSelect") < 0){
-				$(this).addClass("spanSelect")
-				if($(this).html() == "办理须知"){
-					$(".two").removeClass("spanSelect")
-					$(".show").css("display","block")
-					$(".andirodShowText").css("display","none")
-				}
-				if($(this).html() == "车主资讯"){
-					$(".one").removeClass("spanSelect")
-					$(".show").css("display","none")
-					$(".andirodShowText").css("display","block")
-					
-				}
-			}else{
-				
-			}
-		})
-		
-	}
-// 	else if(isiOS){
-// 		$(".iosShow").css("display","block");
-// 		$(".andirodShow").css("display","none")
-// 		$(".showIos").css("display","block");
-// 		$(".show").css("display","block")
-// 	}
-})
-function toggleSelect(){
-	console.log($(this).attr("class"))
-}
-</script>
+</body> 
 </html>
