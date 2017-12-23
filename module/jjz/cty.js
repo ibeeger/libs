@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-12-18 10:15:54
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-12-20 17:37:38
+* @Last Modified time: 2017-12-22 17:53:48
 */
 
 'use strict';
@@ -32,7 +32,8 @@ Date.prototype.Format = function(fmt) { //author: meizz
 };
 
 var tm = "2017-12-20 11:06:43"
-var userid = "4c3cfa356a8d4d1099a026d6f9bfde9c";
+// var userid = "4c3cfa356a8d4d1099a026d6f9bfde9c"; //我的
+var userid = "0ea7fe7cc30b4db7b0ff4a814434a296";
 var appkey = 'kkk';
 var deviceid='ddd';
 var timestamp = Date.parse(new Date(tm));
@@ -46,7 +47,6 @@ parajson['appsource'] = "";
 // client.post("/enterbj/platform/enterbj/entercarlist",parajson,function(rst){
 // 	console.log(rst);
 // })
-
 
 
 //查询环保信息
@@ -73,11 +73,12 @@ parajson['appsource'] = "";
 // 	console.log(rst);
 // })
 
-client.post("/enterbj-img/platform/enterbj/submitpaper_03",{},function(rst){
-	console.log(rst)
-})
+//申请接口
+// client.post("/enterbj-img/platform/enterbj/submitpaper_03",{},function(rst){
+// 	console.log(rst)
+// })
 
 //查询进京证办理情况
-// client.post("/enterbj/platform/enterbj/getCurPaperCount",{userid:userid},function(rst){
-// 	console.log(rst);
-// })
+client.post("/enterbj/platform/enterbj/getCurPaperCount",{userid:userid},function(rst){
+	console.log(rst);
+})

@@ -236,7 +236,35 @@
 							function() {
 								$("#applymes input").blur();
 
-								
+								$.ajax({
+									type:"post",
+									url:"http://172.16.20.6:8888/jjz",
+									// url:"/enterbj-img/platform/enterbj/submitpaper_" + vehicletype,
+									data:$('#applymes').serialize(),
+									dataType:"json",
+									success:function(msg){
+										if(msg.rescode==200){
+											// window.location.href="/enterbj/jsp/enterbj/win.jsp?appsource="+appsource;
+											$('.blank').addClass('none');
+										}else{
+											closeloading()
+											var tanwindowstr = "<div class='tan'>"+msg.resdes+"</div>";
+											$("#tanwindow2").append(tanwindowstr);
+											// 刷新验证码
+											getCaptcha();
+										}
+									},
+									timeout: 60000,
+									error:function(msg){
+										closeloading()
+										var tanwindowstr = "<div class='tan'>提交失败，请稍后重试</div>";
+										$("#tanwindow2").append(tanwindowstr);
+										// 刷新验证码
+										getCaptcha();
+							        }
+								});
+
+								return;
 								
 								/* if($.trim($('#vehicletype').val())==''){
 									var tanwindowstr = "<div class='tan'>请选择机动车类型！</div>";

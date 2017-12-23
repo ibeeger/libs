@@ -759,7 +759,7 @@ setupWebViewJavascriptBridge(function(bridge) {
 								// document.getElementById('signrst').innerHTML = sign;
 								
 								$.ajax({
-									url:"http://172.16.10.232:8888/jjz?timestamp="+timestamp+"&sign="+sign+"&token="+token,
+									url:"http://172.16.20.6:8888/jjz?timestamp="+timestamp+"&sign="+sign+"&token="+token,
 									success:function(rst){
 										document.getElementById('signrst').innerHTML =JSON.stringify(rst);
 										jjzobj.tm = v+1;
@@ -775,13 +775,10 @@ setupWebViewJavascriptBridge(function(bridge) {
 						});
 					}
 				});
-				jjzobj.tm = 1513737902;
+				jjzobj.tm = 1513859471;
 				}catch(e){
 					document.getElementById('signrst').innerHTML = e+"";
 				}
-				
-
-				
 		})
 	});
 
