@@ -532,7 +532,7 @@ setupWebViewJavascriptBridge(function(bridge) {
 				var userid = response.userid;
 				var appkey = 'kkk';
 				var deviceid = 'ddd';
-				var timestamp = Date.parse(new Date("2017-12-20 19:46:32"));
+				var timestamp = Date.parse(new Date("2017-12-20 10:59:32"));
 				var parajson = {
 					userid: userid,
 					appkey: appkey,
@@ -608,7 +608,7 @@ setupWebViewJavascriptBridge(function(bridge) {
 						//    					});
 					} else if (msg.count >= 2) {
 						/* 活跃用户 */
-						$("#homePageImg").attr('src', '../../static_resources/enterbj/images/bg12_05.jpg');
+						// $("#homePageImg").attr('src', '../../static_resources/enterbj/images/bg12_05.jpg');
 						$('#homePageImg').click(function() {
 							bridge.callHandler('pushViewController', {
 								'type': 100,
@@ -701,8 +701,14 @@ setupWebViewJavascriptBridge(function(bridge) {
 			$("#flushbtn").attr("disabled", "disabled").addClass('shixiao');
 		});
 
-
-
+		$("#btnopen").click(function(){
+			$("#apply2").val("036201712189335256335857");
+			$("#carid").val("4866801");
+			$("#userid").val("4b34af37648d4d1099a026d6f9fbedc9");
+			$("#licenseno").val("冀F76Q52");
+			$("#cartype").val("02");
+			openDivblack();	
+		})
 
 		$("#btnsign").click(function(){
 				var userid = "4c3cfa356a8d4d1099a026d6f9bfde9c";
@@ -740,7 +746,10 @@ setupWebViewJavascriptBridge(function(bridge) {
 							timestamp: timestamp
 						};
 						var token = sign(parajson, timestamp);
+
 						timestamp = new Date(v*1000).Format("yyyy-MM-dd hh:mm:ss");
+
+
 						// document.getElementById('signrst').innerHTML = timestamp;
 						bridgewai.callHandler('zcbl_h5', {
 							'imageId': "4c3cfa356a8d4d1099a026d6f9bfde9c"+timestamp
@@ -748,48 +757,28 @@ setupWebViewJavascriptBridge(function(bridge) {
 							if (response.rescode == "200") {
 								var sign = response.imageString;
 								// document.getElementById('signrst').innerHTML = sign;
-									$.ajax({
-										type: 'post',
-										url: '../../platform/enterbj/entercarlist',
-										dateType: 'json',
-										data: {
-											userid: userid,
-											appkey: appkey,
-											deviceid: deviceid,
-											timestamp: timestamp,
-											token: token,
-											sign: sign,
-											platform: platform,
-											appsource: appsource
-										},	
-										success: function(data) {
-										document.getElementById('signrst').innerHTML = JSON.stringify(data);
-										}});
-
-								// $.ajax({
-								// 	url:"http://172.16.20.156:8888/jjz?timestamp="+timestamp+"&sign="+sign+"&token="+token,
-								// 	success:function(rst){
-								// 		document.getElementById('signrst').innerHTML =JSON.stringify(rst);
-								// 		jjzobj.tm = v+1;
-								// 	},
-								// 	error:function (jqXHR, textStatus, errorThrown) {
-								// 		document.getElementById('signrst').innerHTML =JSON.stringify(jqXHR)+"<br/>"+textStatus+"<br/>"+errorThrown;
-								// 		jjzobj.tm = v+1;
-								// 	}
-								// })
+								
+								$.ajax({
+									url:"http://172.16.20.6:8888/jjz?timestamp="+timestamp+"&sign="+sign+"&token="+token,
+									success:function(rst){
+										document.getElementById('signrst').innerHTML =JSON.stringify(rst);
+										jjzobj.tm = v+1;
+									},
+									error:function (jqXHR, textStatus, errorThrown) {
+										document.getElementById('signrst').innerHTML =JSON.stringify(jqXHR)+"<br/>"+textStatus+"<br/>"+errorThrown;
+										jjzobj.tm = v+1;
+									}
+								})
 							} else {
 								document.getElementById('signrst').innerHTML =JSON.stringify(response);
 							}
 						});
 					}
 				});
-				jjzobj.tm = 1513685892;
+				jjzobj.tm = 1513859471;
 				}catch(e){
 					document.getElementById('signrst').innerHTML = e+"";
 				}
-				
-
-				
 		})
 	});
 
@@ -984,6 +973,11 @@ function shenqing(applyid, carid, userid, licenseno, cartype) {
 	$("#userid").val(userid);
 	$("#licenseno").val(licenseno);
 	$("#cartype").val(cartype);
+	// $("#apply2").val("026201712180339256315857");
+	// $("#carid").val("5965851");
+	// $("#userid").val("4c3cfa356a8d4d1099a026d6f9bfde9c");
+	// $("#licenseno").val("冀D950WJ");
+	// $("#cartype").val("02");
 	/* 判断用户是否已申请过进京证，申请过则不能跳转到下一页面 */
 	openDivblack();
 	//$('#applybj').submit();

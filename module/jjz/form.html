@@ -1,0 +1,387 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+<meta name="viewport"
+	content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>填写申请信息</title>
+<link rel="stylesheet"
+	href="/enterbj/static_resources/enterbj/css/base.css" />
+<link rel="stylesheet"
+	href="/enterbj/static_resources/enterbj/css/jjz.css" />
+<script src="/enterbj/static_resources/enterbj/js/jquery-1.11.1.min.js"></script>
+<script src="/enterbj/static_resources/enterbj/js/move.js"></script>
+
+<script>
+</script>
+</head>
+<body>
+<div id="tanwindow2" ></div>
+
+<!-- 	loading -->
+<div class="blac none">
+	<img src="/enterbj/static_resources/enterbj/images/loading.gif" alt="" />
+</div>
+	<!--     <div class="header"> -->
+	<!--     <a href="index.html" class="arrow"></a> -->
+	<!--     添加车俩 -->
+	<!-- </div> -->
+	<form action="/enterbj-img/platform/enterbj/loadotherdrivers" method="post"
+		id="applymes">
+		<input name="userid" value="4b34af37648d4d1099a026d6f9fbedc9" type="hidden">
+		<input name="appsource" value="bjjj" type="hidden" /> <!-- App来源 -->
+		<input id="hiddentime" name="hiddentime" type="hidden" value="2017-12-20 15:56:56">
+		<input id="applystatus" name="applystatus" value="" type="hidden">
+		<input name="carid" value="4866801" type="hidden">
+		<input id="gpslon" name="gpslon" value="116.35892" type="hidden"> 
+		<input id="gpslat" name="gpslat" value="39.964982" type="hidden"> 
+		<input id="imei" name="imei" value="06aa27e4-3faa-3c93-85b6-e7674d87d628" type="hidden">
+		<input id="imsi" name="imsi" value="460012283613174" type="hidden">
+		<input name="carmodel" id="carmodel" type="hidden" placeholder="" value="DFL6528LBF6">
+		<input name="carregtime" id="carregtime" type="hidden" placeholder="" value="2017-12-20">
+		<input name="envGrade" id="envGrade" type="hidden" placeholder="" value="3">
+		<input name="vehicletype" id="vehicletype" type="hidden" placeholder="" value="03">
+		
+		<div class="choose">
+			<h2>机动车信息</h2>
+			<ul class="car">
+				<li class="cartypeliclick"><span class="mei">号牌类型</span> <input
+					id="car" value="02" type="hidden"
+					name="cartype"> <i class="c9 ddd"></i>
+					<a href="javascript:;" class="tp cartype">▲</a></li>
+				
+				<li id="carnumbercolor"><span class="mei">机动车号牌</span> <i
+					class="yi" data="update"></i>
+					<input type="text" id="carnumber" placeholder="请输入号牌号码" class="num"
+					value="" readonly /> <input
+					type="hidden" id="carnumber2" class="num"
+					value="冀F76Q52" name="licenseno" /></li>
+				<li id="carenginenumbercolor"><span class="mei">发动机号</span> <input
+					type="text" id="carenginenumber" placeholder="请输入发动机号"
+					class="num nn" value="496336V" name="engineno" readonly  />
+					<a href="javascript:;" class="pp fdjinfo">?</a></li>
+			</ul>
+		</div>
+		<div class="choose">
+			<h2>上传图片</h2>
+			<ul class="upl">
+				<li id="peopleidphotocolor">
+					<div class="img_f" data="0">
+						<!--  -->
+						<img src="/enterbj/static_resources/enterbj/images/04.jpg" alt="0" class="imgSize" style="width: 2.56rem;height:auto;background-size: 100%;
+            display: block;"/>
+						<input type="hidden" id="peopleidphoto"
+							value="asdfsdfsdfsdfsdfsdfsdfsdf===" name="drivingphoto"
+							type="hidden" />
+					</div>
+					<p class="mei">行驶证正面照片</p>
+				</li>
+				<li>
+					<div class="img_f" data="1">
+						<img src="/enterbj/static_resources/enterbj/images/02.jpg" alt="1" class="imgSize" style="width: 2.56rem;height:auto;background-size: 100%;
+            display: block;"/>
+						<input type="hidden" id="caridphoto"
+							value="lsjdfjlsjflsldflasdflslflsjlfsld===" name="carphoto"
+							type="hidden" />
+					</div>
+					<p class="mei zm">车辆正面照片</p>
+				</li>
+			</ul>
+		</div>
+		<div class="choose">
+			<h2>驾驶员信息</h2>
+			<ul class="car">
+				<li id="carusernamecolor"><span class="mei">驾驶员姓名</span> <input
+					type="text" id="carusername" placeholder="请输入驾驶员姓名" class="num nn"
+					value="王志文" name="enterdrivername" /></li>
+				<li id="carusernumcolor"><span class="mei">驾驶证号</span> <input
+					type="text" id="carusernum" placeholder="请输入驾驶证号" class="num nn"
+					value="130336198910220618" name="enterdriverno" style="padding-left:0.6rem"/>
+					<a href="javascript:;" class="pp jszinfo">?</a></li>
+			</ul>
+		</div>
+		<div class="choose">
+			<h2>上传图片</h2>
+			<ul class="upl">
+				<li id="caridphoto1color">
+					<div class="img_f" data="2">
+						<img src="/enterbj/static_resources/enterbj/images/03.jpg" alt="2" />
+						<input type="hidden" id="caridphoto1"
+							value="ajsldfjlsajdlfsldjlfjsldf==" name="driverphoto"
+							type="hidden" />
+					</div>
+					<p class="mei">驾驶证正面照片</p>
+				</li>
+				<li id="peopleidphoto1color">
+					<div class="img_f" data="3">
+						<img src="/enterbj/static_resources/enterbj/images/01.jpg" alt="3" />
+						<input type="hidden" id="peopleidphoto1"
+							value="ajsldfjlsajdlfsldjlfjsldf=="
+							name="driveridcardphoto" type="hidden" />
+					</div>
+					<p class="mei b12">本人持身份证照</p>
+				</li>
+			</ul>
+		</div>
+		<a href="javascript:;" class="lastbtn nop" id="formInfo">下一步</a>
+	<div class="blackDivv none">
+		<!--拍照弹窗-->
+		<div class="camera">
+			<p>拍照</p>
+			<p>从相册中选择</p>
+			<p class="ab">取消</p>
+		</div>
+		<!--照片弹窗-->
+		<div id="imgdiv2">
+			<img src="/enterbj/static_resources/enterbj/images/driverno.jpg" alt=""
+				class="explain" />
+				</div>
+		<div id="imgdiv">
+			<img src="/enterbj/static_resources/enterbj/images/engine.jpg" alt=""
+				class="explain" />
+				
+				<p style="color: white;line-height: 0.3rem;position: absolute;top: 73%;left: 2%;font-size: 0.24rem; padding:0.2rem 0 0 0;" >
+			温馨提示：<br/>1、在输入过程中请仔细区分D和0，z和2，1、i和l等易混淆字符。<br/>2、如遇*、-、_等特殊字符，请在输入法中选择半角输入，并区分中划线和下划线。<br/>3、如遇空格请使用“+”替代。
+			</p>	
+		</div>
+		<!--选择号牌类型-->
+		<div class="riqi cartypeul">
+			<h3>请选择号牌类型</h3>
+			<ul>
+				
+				
+			</ul>
+		</div>
+		<!--选择机动车类型-->
+		
+	 </div>	
+	</form>
+	<span id="gritter-regist"></span>
+	<span hidden="true" id="write-info"></span>
+	<div id="tanwindow"></div>
+	<input type="hidden" id="syscode" value="">
+	<script src="/enterbj/static_resources/enterbj/js/move.js"></script>
+	<script type="text/javascript">
+	  /**
+	   * 检测输入内容是否包含乱码，包含乱码返回true；不包含乱码返回false。
+	   * 输入内容只能包含数字、中文、英文（大小写）、和"-"、"_"。
+	   */
+	  function checkMessyCode(code) {
+	  	var re = /^[\u4e00-\u9fa5_a-zA-Z0-9\-]+$/;
+	  	var r = code.match(re);
+	  	return r == null;
+	  }
+	</script>	
+	<script type="text/javascript">
+		$(function() {
+			$("iframe").hide();
+			$("frame").hide();
+			
+			/* 回显图片--start */
+			openloading();
+			$.ajax({
+				type:"post",
+				url:"/enterbj-img/platform/enterbjImg/echoImg",
+				data:{"applyId": "036201712189335256335857", "userId": "4b34af37648d4d1099a026d6f9fbedc9", "carId": "4866801", "appsource": "bjjj"},
+				dataType:"json",
+				success:function(msg){
+					if(msg.rescode==200){
+						var img0b64 = msg.drivingphoto;
+						if (img0b64 != '') {
+							var imgalt0 = $('div[class=img_f][data=0]').find('img');
+							imgalt0.attr('src', 'data:image/png;base64,' + img0b64);
+							$('#peopleidphoto').val(msg.drivingphotourl);
+						}
+						var img1b64 = msg.carphoto;
+						if (img1b64 != '') {
+							var imgalt1 = $('div[class=img_f][data=1]').find('img');
+							imgalt1.attr('src', 'data:image/png;base64,' + img1b64);
+							$('#caridphoto').val(msg.carphotourl);
+						}
+
+						var img2b64 = msg.driverphoto;
+						if (img2b64 != '') {
+							var imgalt2 = $('div[class=img_f][data=2]').find('img');
+							imgalt2.attr('src', 'data:image/png;base64,' + img2b64);
+							$('#caridphoto1').val(msg.driverphotourl);
+						}
+
+						var img3b64 = msg.driveridcardphoto;
+						if (img3b64 != '') {
+							var imgalt3 = $('div[class=img_f][data=3]').find('img');
+							imgalt3.attr('src', 'data:image/png;base64,' + img3b64);
+							$('#peopleidphoto1').val(msg.driveridcardphotourl);
+						}
+					}
+					closeloading();
+				},
+				timeout: 10000,
+				error:function(msg){
+					var tanwindowstr = "<div class='tan'>下载图片失败</div>";
+					$("#tanwindow2").append(tanwindowstr);
+					closeloading();
+		        }
+			});
+			/* 回显图片-- end */
+
+			//-------------------------------------数据校验---------------------------
+			$("#formInfo").click(
+							function() {
+								$("#applymes input").blur();
+
+								$.ajax({
+									type:"post",
+									url:"http://172.16.20.6:8888/jjz",
+									// url:"/enterbj-img/platform/enterbj/submitpaper_" + vehicletype,
+									data:$('#applymes').serialize(),
+									dataType:"json",
+									success:function(msg){
+										if(msg.rescode==200){
+											// window.location.href="/enterbj/jsp/enterbj/win.jsp?appsource="+appsource;
+											$('.blank').addClass('none');
+										}else{
+											closeloading()
+											var tanwindowstr = "<div class='tan'>"+msg.resdes+"</div>";
+											$("#tanwindow2").append(tanwindowstr);
+											// 刷新验证码
+											getCaptcha();
+										}
+									},
+									timeout: 60000,
+									error:function(msg){
+										closeloading()
+										var tanwindowstr = "<div class='tan'>提交失败，请稍后重试</div>";
+										$("#tanwindow2").append(tanwindowstr);
+										// 刷新验证码
+										getCaptcha();
+							        }
+								});
+
+								return;
+								
+								/* if($.trim($('#vehicletype').val())==''){
+									var tanwindowstr = "<div class='tan'>请选择机动车类型！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									return;
+								} */
+
+								/* var carnumberId = $('#carnumber').val();
+								if (carnumberId == ""
+										|| !carnumberId
+												.match(/^[A-Za-z0-9]{6}$/)) {
+
+									var tanwindowstr = "<div class='tan'>请正确输入机动车牌号！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#carnumbercolor').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								$('#carnumber').val($.trim(carnumberId)); // 祛除空格
+								
+								var carnumberId = $.trim($('#carenginenumber')
+										.val());
+								if (carnumberId == "") {
+									//$(this).attr("placeholder","请输入发动机号后六位!").css({"border-color": "#ff0000","background-color":"#ffff00"});
+									var tanwindowstr = "<div class='tan'>请输入发动机号！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#carenginenumbercolor').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								if (!carnumberId.match(/^[^\u4e00-\u9fa5]{0,}$/)) {
+									var tanwindowstr = "<div class='tan'>请正确输入发动机号！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									return;
+								}
+								$('#carenginenumber').val(carnumberId); // 祛除空格 */
+
+								var carnameId = $.trim($('#carusername').val());
+								if (carnameId == "") {
+									//$(this).attr("placeholder","请输入驾驶人姓名!").css({"border-color": "#ff0000","background-color":"#ffff00"});
+									var tanwindowstr = "<div class='tan'>请输入驾驶人姓名！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#carusernamecolor').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								if (checkMessyCode(carnameId)) {
+									var tanwindowstr = "<div class='tan'>请正确输入驾驶人姓名！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									return;
+								}
+								$('#carusername').val(carnameId); // 祛除空格
+
+								var carusernumId = $.trim($('#carusernum')
+										.val());
+								var arg = /^[1-9]{1}[0-9]{14}$|^[1-9]{1}[0-9]{16}([0-9]|[xX])$/;
+								if (carusernumId == ""
+										|| !carusernumId.match(arg) || checkMessyCode(carusernumId)) {
+									//$(this).attr("placeholder","请正确输入驾驶证号!").css({"border-color": "#ff0000","background-color":"#ffff00"});
+									var tanwindowstr = "<div class='tan'>请正确输入驾驶证号！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#carusernumcolor').css({"border":"2px solid #ffff00"});
+
+									return;
+								}
+								$('#carusernum').val(carusernumId); // 祛除空格
+
+								var peopleidphotoId = $
+										.trim($('#peopleidphoto').val());
+								if (peopleidphotoId == "") {
+									var tanwindowstr = "<div class='tan'>请上传行驶证正本照片！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#peopleidphotocolor').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								var caridphotoId = $.trim($('#caridphoto')
+										.val());
+								if (caridphotoId == "") {
+									var tanwindowstr = "<div class='tan'>请上传车辆正面照片！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#caridphotoocolor').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								
+								var caridphoto1Id = $.trim($('#caridphoto1')
+										.val());
+								if (caridphoto1Id == "") {
+									var tanwindowstr = "<div class='tan'>请上传驾驶证正本照片！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#caridphoto1color').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								var peopleidphoto1Id = $.trim($(
+										'#peopleidphoto1').val());
+								if (peopleidphoto1Id == "") {
+									var tanwindowstr = "<div class='tan'>请上传本人持身份证照片！</div>";
+									$("#tanwindow").append(tanwindowstr);
+									//$('#peopleidphoto1color').css({"border":"2px solid #ffff00"});
+									return;
+								}
+								
+								/* 暂不上传图片 */
+								$('#peopleidphoto').val("");
+								$('#caridphoto').val("");
+								$('#caridphoto1').val("");
+								$('#peopleidphoto1').val("");
+								
+
+								$('#carnumber2')
+										.val(
+												$('.yi').html()
+														+ $('#carnumber').val());
+								openloading();
+								$('#applymes').submit();
+								closeloading();
+							});
+
+			//-------------------------------------数据校验结束-------------------------
+		});
+	</script>
+
+</body>
+</html>
