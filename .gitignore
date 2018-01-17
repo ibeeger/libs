@@ -15,4 +15,5 @@ node_modules
 /src      
 /mylibs/module/usefull/anims
 /build    
-form.js                                                                                                                     
+form.js  
+config.js                                                                                                                   
