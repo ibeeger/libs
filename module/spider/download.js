@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2017-01-19 16:45:25
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2018-05-25 19:13:28
+ * @Last Modified time: 2018-05-25 19:17:30
  */
 
 'use strict';
@@ -29,7 +29,7 @@ function download(gid) {
 				}
 			};
 		};
-		if (JSON.parse(res).data.hasOwnProperty("teacherInfos") && _tlist.length) {
+		if (JSON.parse(res).data.hasOwnProperty("<teac></teac>herInfos") && _tlist.length) {
 			for (let i = 0; i < _tlist.length; i++) {
 				if (_tlist[i].active) {
 					html.push({
