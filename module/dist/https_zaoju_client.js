@@ -2,13 +2,13 @@
  * @Author: willclass
  * @Date:   2015-10-28 14:41:09
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2018-04-12 18:48:38
+ * @Last Modified time: 2018-05-03 10:09:25
  */
 
 'use strict';
 
 var https = require("https"),
-	cookie = "", host = "enterbj.zhongchebaolian.com",
+	cookie = "", host = "xiaodu.baidu.com",
 	type = 'application/json',
 	method = 'POST',
 	port = 443;
@@ -16,9 +16,6 @@ var ref = "",ua='Mozilla/5.0 (Linux; Android 7.0; VTR-AL00 Build/HUAWEIVTR-AL00;
 const crypto = require("crypto");
 var client = {
 	post: function(url, data, callback) {
-		const md5 = crypto.createHash("md5");
-			  md5.update(Date.now()+"");
-			  // md5.update("ibeeger.com");
 		var _data = JSON.stringify(data),
 			_datalth = Buffer.byteLength(_data, 'utf8');
 		var _options = {
