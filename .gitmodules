@@ -1,0 +1,3 @@
+[submodule "vue-record-webcam"]
+	path = vue-record-webcam
+	url = https://github.com/ibeeger/vue-record-webcam.git

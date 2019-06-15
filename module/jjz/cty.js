@@ -64,7 +64,7 @@ parajson['appsource'] = "";
 
 
 //查看状态是否可以申请
-// client.post("/enterbj/platform/enterbj/curtime_03?userid="+userid,{},function(rst){
+// client.post("/enterbj/platform/enterbj/curtime_03",{userid:userid},function(rst){
 // 	console.log(rst);
 // });
 
@@ -74,11 +74,19 @@ parajson['appsource'] = "";
 // })
 
 //申请接口
-// client.post("/enterbj-img/platform/enterbj/submitpaper_03",{},function(rst){
-// 	console.log(rst)
-// })
+var json = all.getSubPaperJson("2017-12-25 00:01:05","aaNVCC0010512ca8c0ab779ca575f888946218bc4402239b7d","D2B1D2B68128E9600EF54209EB857732");
 
-//查询进京证办理情况
-client.post("/enterbj/platform/enterbj/getCurPaperCount",{userid:userid},function(rst){
+for(let i in json){
+	if (!json[i]) {
+		console.log(i);
+	}
+}
+
+client.post("/enterbj-img/platform/enterbj/submitpaper_03",json,function(rst){
 	console.log(rst);
 })
+
+//查询进京证办理情况
+// client.post("/enterbj/platform/enterbj/getCurPaperCount",{userid:userid},function(rst){
+// 	console.log(rst);
+// })

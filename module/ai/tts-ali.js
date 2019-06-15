@@ -21,7 +21,7 @@ var ak_secret = config.secret;
 
 function speak (text, cb) {
     var options = {
-        url : 'http://nlsapi.aliyun.com/speak?encode_type=wav&tts_nus=0&voice_name=xiaoyun&sample_rate=16000&volume=60&speech_rate=-500&background_music_id=1&background_music_volume=60',
+        url : 'http://nlsapi.aliyun.com/speak?encode_type=wav&tts_nus=0&voice_name=xiaoyun&sample_rate=16000&volume=60&speech_rate=0&background_music_id=1&background_music_volume=60',
         method: 'POST',
         body: text,
         headers: {
